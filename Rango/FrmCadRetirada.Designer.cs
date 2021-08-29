@@ -210,8 +210,10 @@ namespace Rango
             // 
             // TxtPesquisa
             // 
+            this.helpProvider1.SetHelpString(this.TxtPesquisa, "Caixa de pesquisa");
             this.TxtPesquisa.Location = new System.Drawing.Point(6, 13);
             this.TxtPesquisa.Name = "TxtPesquisa";
+            this.helpProvider1.SetShowHelp(this.TxtPesquisa, true);
             this.TxtPesquisa.Size = new System.Drawing.Size(359, 20);
             this.TxtPesquisa.TabIndex = 0;
             this.TxtPesquisa.TextChanged += new System.EventHandler(this.TxtPesquisa_TextChanged);

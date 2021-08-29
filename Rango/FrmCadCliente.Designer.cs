@@ -29,7 +29,7 @@ namespace Rango
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.TxtPesquisa = new System.Windows.Forms.TextBox();
@@ -87,9 +87,11 @@ namespace Rango
             // 
             // TxtPesquisa
             // 
+            this.helpProvider.SetHelpString(this.TxtPesquisa, "Caixa de pesquisa");
             this.TxtPesquisa.Location = new System.Drawing.Point(7, 12);
             this.TxtPesquisa.MaxLength = 250;
             this.TxtPesquisa.Name = "TxtPesquisa";
+            this.helpProvider.SetShowHelp(this.TxtPesquisa, true);
             this.TxtPesquisa.Size = new System.Drawing.Size(367, 20);
             this.TxtPesquisa.TabIndex = 0;
             this.TxtPesquisa.TextChanged += new System.EventHandler(this.TxtPesquisa_TextChanged);
@@ -152,8 +154,8 @@ namespace Rango
             // Ativo
             // 
             this.Ativo.DataPropertyName = "Ativo";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Ativo.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Ativo.DefaultCellStyle = dataGridViewCellStyle3;
             this.Ativo.HeaderText = "Ativo";
             this.Ativo.Name = "Ativo";
             this.Ativo.ReadOnly = true;

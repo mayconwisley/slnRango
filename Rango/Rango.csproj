@@ -156,18 +156,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -189,6 +190,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PratoComida.ico" />
+    <None Include="Resources\Venda1-32.ico" />
+    <None Include="Resources\Retirada1-32.ico" />
+    <None Include="Resources\Consulta32.ico" />
+    <None Include="Resources\Cadastro32.png" />
+    <None Include="Resources\Sair32.ico" />
+    <None Include="Resources\Produto32.png" />
+    <None Include="Resources\Saldo32.ico" />
+    <None Include="Resources\Retirada32.ico" />
+    <None Include="Resources\Venda32.ico" />
+    <None Include="Resources\ClienteAdd32.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Firebird.Embedded.2.5.6.27020\build\Firebird.Embedded.targets" Condition="Exists('..\packages\Firebird.Embedded.2.5.6.27020\build\Firebird.Embedded.targets')" />
