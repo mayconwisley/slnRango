@@ -53,6 +53,7 @@ namespace Rango
             this.TxtDescricao = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.MktData = new System.Windows.Forms.MaskedTextBox();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.panel1.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLista)).BeginInit();
@@ -321,9 +322,13 @@ namespace Rango
             this.ClientSize = new System.Drawing.Size(429, 428);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.HelpButton = true;
+            this.helpProvider1.SetHelpString(this, "Para Alterar ou Excluir qualquer item das telas de cadastros, basta dar dois cliq" +
+        "ues no item, e pós fazer a alteração e clicar no alterar, ou clicar no excluir.");
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmCadProduto";
+            this.helpProvider1.SetShowHelp(this, true);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -371,5 +376,6 @@ namespace Rango
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ativo;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

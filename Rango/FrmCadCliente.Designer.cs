@@ -52,6 +52,7 @@ namespace Rango
             this.MktTelefone = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TxtNome = new System.Windows.Forms.TextBox();
+            this.helpProvider = new System.Windows.Forms.HelpProvider();
             this.panel1.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLista)).BeginInit();
@@ -311,9 +312,13 @@ namespace Rango
             this.ClientSize = new System.Drawing.Size(419, 367);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.HelpButton = true;
+            this.helpProvider.SetHelpString(this, "Para Alterar ou Excluir qualquer item das telas de cadastros, basta dar dois cliq" +
+        "ues no item, e pós fazer a alteração e clicar no alterar, ou clicar no excluir.");
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmCadCliente";
+            this.helpProvider.SetShowHelp(this, true);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -361,5 +366,6 @@ namespace Rango
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefone;
         private System.Windows.Forms.DataGridViewTextBoxColumn Celular;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ativo;
+        private System.Windows.Forms.HelpProvider helpProvider;
     }
 }
