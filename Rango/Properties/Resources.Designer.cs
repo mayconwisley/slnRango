@@ -93,6 +93,26 @@ namespace Rango.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Credito32 {
+            get {
+                object obj = ResourceManager.GetObject("Credito32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Debito32 {
+            get {
+                object obj = ResourceManager.GetObject("Debito32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Produto32 {
             get {
                 object obj = ResourceManager.GetObject("Produto32", resourceCulture);

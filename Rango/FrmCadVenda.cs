@@ -63,7 +63,6 @@ namespace Rango
 
 
                 TxtQuantidade.Text = "0";
-                TxtValor.Text = "0,00";
                 MktData.Text = DateTime.Now.ToString("d");
 
             }
@@ -71,22 +70,25 @@ namespace Rango
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
         private void Listar(string pesquisa)
         {
             Lista lista = new Lista();
             DgvLista.DataSource = lista.Geral(pesquisa);
-
         }
 
         private void ListarCliente()
         {
             Controle.Cliente.Listar.Lista lista = new Controle.Cliente.Listar.Lista();
-
-            CbxCliente.DataSource = lista.IdNome();
-
+            try
+            {
+                CbxCliente.DataSource = lista.IdNome();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ListarProduto()

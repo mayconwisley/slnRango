@@ -51,6 +51,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,6 +65,14 @@
     <Compile Include="Cliente\Excluir.cs" />
     <Compile Include="Cliente\Gravar.cs" />
     <Compile Include="Cliente\Listar\Lista.cs" />
+    <Compile Include="Credito\Alterar.cs" />
+    <Compile Include="Credito\Excluir.cs" />
+    <Compile Include="Credito\Gravar.cs" />
+    <Compile Include="Credito\Listar\Lista.cs" />
+    <Compile Include="Debito\Alterar.cs" />
+    <Compile Include="Debito\Excluir.cs" />
+    <Compile Include="Debito\Gravar.cs" />
+    <Compile Include="Debito\Listar\Lista.cs" />
     <Compile Include="Produto\Alterar.cs" />
     <Compile Include="Produto\Excluir.cs" />
     <Compile Include="Produto\Gravar.cs" />
@@ -78,7 +88,6 @@
     <Compile Include="Venda\Gravar.cs" />
     <Compile Include="Venda\Listar\Lista.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Banco\Banco.csproj">
       <Project>{cc33f31f-9e6e-4833-8dbe-af8619dfe2f8}</Project>

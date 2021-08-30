@@ -37,8 +37,6 @@ BEGIN
 END^
 SET TERM ; ^
 
-
-
 CREATE TABLE Venda(
     Id INTEGER NOT NULL,
     Cliente_Id INTEGER NOT NULL,
@@ -59,6 +57,26 @@ BEFORE INSERT POSITION 0
 AS
 BEGIN 
     new.ID = gen_id(GT_A_Inc_Venda,1);
+END^
+SET TERM ; ^
+
+CREATE TABLE Credito(
+    Id INTEGER NOT NULL,
+    Cliente_Id INTEGER NOT NULL,
+    Data DATE NOT NULL,
+    Valor DECIMAL(10,2) NOT NULL,
+CONSTRAINT PK_Id_Credito PRIMARY KEY(Id),
+CONSTRAINT FK_Cli_Cre FOREIGN KEY(Cliente_Id) REFERENCES Cliente(Id)
+);
+
+CREATE GENERATOR GT_A_INC_Credito;
+
+SET TERM ^ ;
+CREATE TRIGGER TR_A_INC_Credito FOR Credito ACTIVE
+BEFORE INSERT POSITION 0
+AS
+BEGIN 
+    new.ID = gen_id(GT_A_INC_Credito, 1);
 END^
 SET TERM ; ^
 
@@ -86,6 +104,35 @@ BEGIN
     new.ID = gen_id(GT_A_Inc_Retirada,1);
 END^
 SET TERM ; ^
+
+
+CREATE TABLE Debito(
+    Id INTEGER NOT NULL,
+    Cliente_Id INTEGER NOT NULL,
+    Produto_Id INTEGER NOT NULL,
+    Data DATE NOT NULL,
+    Quantidade INTEGER NOT NULL ,
+    Valor DECIMAL(10,2) NOT NULL,
+
+CONSTRAINT PK_Id_Debito PRIMARY KEY(Id),
+CONSTRAINT FK_Cli_Deb FOREIGN KEY(Cliente_Id) REFERENCES Cliente(Id),
+CONSTRAINT FK_Pro_Dev FOREIGN KEY(Produto_Id) REFERENCES Produto(Id)    
+
+);
+
+CREATE GENERATOR GT_A_INC_Debito;
+
+SET TERM ^ ;
+CREATE TRIGGER TR_A_INC_Debito FOR Debito ACTIVE
+BEFORE INSERT POSITION 0
+AS
+BEGIN 
+    new.ID = gen_id(GT_A_Inc_Debito,1);
+END^
+SET TERM ; ^
+
+
+
 
 CREATE VIEW Saldo_Cliente(
     CLIENTE_ID, 
@@ -115,8 +162,8 @@ FROM (
 )
 GROUP BY CLIENTE_ID, Nome, PRODUTO_ID, Descricao, Valor;
 
-GRANT ALL ON Cliente TO Rango;
-GRANT ALL ON Produto TO Rango;
-GRANT ALL ON Retirada TO Rango;
-GRANT ALL ON Venda TO Rango;
-GRANT ALL ON Saldo_Cliente TO Rango;
+GRANT ALL ON Cliente TO sysdba;
+GRANT ALL ON Produto TO sysdba;
+GRANT ALL ON Retirada TO sysdba;
+GRANT ALL ON Venda TO sysdba;
+GRANT ALL ON Saldo_Cliente TO sysdba;

@@ -61,5 +61,17 @@ namespace Rango
             FrmConsVenda frmConsVenda = new FrmConsVenda();
             frmConsVenda.ShowDialog();
         }
+
+        private void SubMenuVendaCredito_Click(object sender, EventArgs e)
+        {
+            FrmCadCredito frmCadCredito = new FrmCadCredito();
+            frmCadCredito.ShowDialog();
+        }
+
+        private void SubMenuRetiradaDebito_Click(object sender, EventArgs e)
+        {
+            FrmCadDebito frmCadDebito = new FrmCadDebito();
+            frmCadDebito.ShowDialog();
+        }
     }
 }

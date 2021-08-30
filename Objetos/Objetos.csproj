@@ -61,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cliente\ClienteObjeto.cs" />
+    <Compile Include="Credito\CreditoObjeto.cs" />
+    <Compile Include="Debito\DebitoObjeto.cs" />
     <Compile Include="Produto\ProdutoObjeto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Retirada\RetiradaObjeto.cs" />

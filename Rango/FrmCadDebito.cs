@@ -1,41 +1,48 @@
-﻿using Controle.Retirada;
-using Controle.Retirada.Listar;
+﻿using Controle.Debito;
+using Controle.Debito.Listar;
 using Controle.Validar;
-using Objetos.Retirada;
+using Objetos.Debito;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Rango
 {
-    public partial class FrmCadRetirada : Form
+    public partial class FrmCadDebito : Form
     {
-        public FrmCadRetirada()
+        public FrmCadDebito()
         {
             InitializeComponent();
         }
 
-        int idCliente, idProduto, idRetirada, qtdValidar;
+        int idCliente, idProduto, idDebito, qtdValidar;
         decimal valorProduto = 0;
 
         //Manipular dados de venda
         private void Manipular(char opc)
         {
-            RetiradaObjeto retirada = new RetiradaObjeto();
+            DebitoObjeto debito = new DebitoObjeto();
             Gravar gravar = new Gravar();
             Alterar alterar = new Alterar();
             Excluir excluir = new Excluir();
 
             try
             {
-                retirada.Id = idRetirada;
-                retirada.Cliente = new Objetos.Cliente.ClienteObjeto();
-                retirada.Cliente.Id = idCliente;
-                retirada.Produto = new Objetos.Produto.ProdutoObjeto();
-                retirada.Produto.Id = idProduto;
+                debito.Id = idProduto;
+                debito.Cliente = new Objetos.Cliente.ClienteObjeto();
+                debito.Cliente.Id = idCliente;
+                debito.Produto = new Objetos.Produto.ProdutoObjeto();
+                debito.Produto.Id = idProduto;
 
-                retirada.Data = DateTime.Parse(MktData.Text.Trim());
-                retirada.Quantidade = int.Parse(TxtQuantidade.Text.Trim());
-                retirada.Valor = decimal.Parse(TxtValor.Text.Trim());
+                debito.Data = DateTime.Parse(MktData.Text.Trim());
+                debito.Quantidade = int.Parse(TxtQuantidade.Text.Trim());
+                debito.Valor = decimal.Parse(TxtValor.Text.Trim());
 
                 int qtd = int.Parse(TxtQuantidade.Text.Trim());
 
@@ -49,7 +56,7 @@ namespace Rango
                             return;
                         }
 
-                        gravar.Cadastro(retirada);
+                        gravar.Cadastro(debito);
                         break;
                     case 'A':
                         if (qtd > qtdValidar)
@@ -59,10 +66,10 @@ namespace Rango
                             return;
                         }
 
-                        alterar.Cadastro(retirada);
+                        alterar.Cadastro(debito);
                         break;
                     case 'E':
-                        excluir.Cadastro(retirada);
+                        excluir.Cadastro(debito);
                         break;
                     default:
                         MessageBox.Show("Sem Manipulação");
@@ -70,7 +77,7 @@ namespace Rango
                 }
 
                 Listar($"%{TxtPesquisa.Text.Trim()}%");
-                ValidarSaldo(idCliente, idProduto);
+                //ValidarSaldo(idCliente, idProduto);
                 LblSaldo.Text = $"Saldo Atual: {qtdValidar.ToString("00")}";
 
                 BtnAlterar.Enabled = false;
@@ -89,36 +96,6 @@ namespace Rango
 
         }
 
-        private void Listar(string pesquisa)
-        {
-            Lista lista = new Lista();
-            DgvLista.DataSource = lista.Geral(pesquisa);
-
-        }
-
-
-        private void ListarCliente()
-        {
-            Controle.Cliente.Listar.Lista lista = new Controle.Cliente.Listar.Lista();
-
-            CbxCliente.DataSource = lista.IdNome();
-        }
-
-        private void ValidarSaldo(int idCliente, int idProduto)
-        {
-            int qtdVenda, qtdRetirada;
-
-            Controle.Venda.Listar.Lista lista = new Controle.Venda.Listar.Lista();
-            Controle.Retirada.Listar.Lista lista1 = new Controle.Retirada.Listar.Lista();
-
-            qtdVenda = lista.Quantidade(idCliente, idProduto);
-            qtdRetirada = lista1.Quantidade(idCliente, idProduto);
-
-            qtdValidar = qtdVenda - qtdRetirada;
-
-
-        }
-
         private void CbxProduto_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -131,7 +108,7 @@ namespace Rango
 
                 TxtValor.Text = valorProduto.ToString("#,##0.00");
 
-                ValidarSaldo(idCliente, idProduto);
+                //ValidarSaldo(idCliente, idProduto);
                 LblSaldo.Text = $"Saldo Atual: {qtdValidar.ToString("00")}";
 
                 if (qtdValidar <= 0)
@@ -153,7 +130,7 @@ namespace Rango
 
         private void DgvLista_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            idRetirada = int.Parse(DgvLista.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+            idDebito = int.Parse(DgvLista.Rows[e.RowIndex].Cells["Id"].Value.ToString());
 
             idCliente = int.Parse(DgvLista.Rows[e.RowIndex].Cells["Cliente_Id"].Value.ToString());
             idProduto = int.Parse(DgvLista.Rows[e.RowIndex].Cells["Produto_Id"].Value.ToString());
@@ -203,12 +180,13 @@ namespace Rango
 
         private void TxtIdProduto_Leave(object sender, EventArgs e)
         {
+
             idProduto = int.Parse(TxtIdProduto.Text);
             CbxProduto.SelectedValue = idProduto;
             CbxProduto_SelectedIndexChanged(e, e);
         }
 
-        private void FrmCadRetirada_KeyPress(object sender, KeyPressEventArgs e)
+        private void FrmCadDebito_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
@@ -262,13 +240,50 @@ namespace Rango
 
         private void CbxCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             CbxProduto.Text = "";
             TxtIdProduto.Text = "";
             idCliente = int.Parse(CbxCliente.SelectedValue.ToString());
             TxtIdCliente.Text = idCliente.ToString();
             ListarProduto(idCliente);
         }
+
+        private void FrmCadDebito_Load(object sender, EventArgs e)
+        {
+            ListarCliente();
+
+            Listar($"%{TxtPesquisa.Text.Trim()}%");
+            MktData.Text = DateTime.Now.ToString("d");
+        }
+
+        private void Listar(string pesquisa)
+        {
+            Lista lista = new Lista();
+            DgvLista.DataSource = lista.Geral(pesquisa);
+
+        }
+
+
+        private void ListarCliente()
+        {
+            Controle.Cliente.Listar.Lista lista = new Controle.Cliente.Listar.Lista();
+
+            CbxCliente.DataSource = lista.IdNome();
+        }
+
+        //private void ValidarSaldo(int idCliente, int idProduto)
+        //{
+        //    int qtdVenda, qtddebito;
+
+        //    Controle.Venda.Listar.Lista lista = new Controle.Venda.Listar.Lista();
+        //    Controle.debito.Listar.Lista lista1 = new Controle.debito.Listar.Lista();
+
+        //    qtdVenda = lista.Quantidade(idCliente, idProduto);
+        //    qtddebito = lista1.Quantidade(idCliente, idProduto);
+
+        //    qtdValidar = qtdVenda - qtddebito;
+
+
+        //}
 
         private void ListarProduto(int idCliente)
         {
@@ -283,12 +298,6 @@ namespace Rango
             }
         }
 
-        private void FrmCadRetirada_Load(object sender, EventArgs e)
-        {
-            ListarCliente();
 
-            Listar($"%{TxtPesquisa.Text.Trim()}%");
-            MktData.Text = DateTime.Now.ToString("d");
-        }
     }
 }

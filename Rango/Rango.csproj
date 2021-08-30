@@ -86,6 +86,18 @@
     <Compile Include="FrmCadCliente.Designer.cs">
       <DependentUpon>FrmCadCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCadCredito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadCredito.Designer.cs">
+      <DependentUpon>FrmCadCredito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCadDebito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadDebito.Designer.cs">
+      <DependentUpon>FrmCadDebito.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCadProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +144,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmCadCliente.resx">
       <DependentUpon>FrmCadCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadCredito.resx">
+      <DependentUpon>FrmCadCredito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCadDebito.resx">
+      <DependentUpon>FrmCadDebito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadProduto.resx">
       <DependentUpon>FrmCadProduto.cs</DependentUpon>
@@ -190,6 +208,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PratoComida.ico" />
+    <None Include="Resources\Debito32.ico" />
+    <None Include="Resources\Credito32.ico" />
     <None Include="Resources\Venda1-32.ico" />
     <None Include="Resources\Retirada1-32.ico" />
     <None Include="Resources\Consulta32.ico" />
