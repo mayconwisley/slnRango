@@ -73,6 +73,16 @@ namespace Rango.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CD32 {
+            get {
+                object obj = ResourceManager.GetObject("CD32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ClienteAdd32 {
             get {
                 object obj = ResourceManager.GetObject("ClienteAdd32", resourceCulture);
@@ -106,6 +116,16 @@ namespace Rango.Properties {
         internal static System.Drawing.Bitmap Debito32 {
             get {
                 object obj = ResourceManager.GetObject("Debito32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Extrato32 {
+            get {
+                object obj = ResourceManager.GetObject("Extrato32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -1,10 +1,7 @@
 ﻿using Banco;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Controle.Credito.Listar
 {
@@ -59,13 +56,12 @@ namespace Controle.Credito.Listar
             }
         }
 
-
         public decimal SaldoAtual(int idCliente)
         {
             Crud crud = new Crud();
             StringBuilder sql = new StringBuilder();
 
-            sql.Append("SELECT SUM(SCD.Saldo) ");
+            sql.Append("SELECT SUM(SCD.SALDO) AS Saldo ");
             sql.Append("FROM Saldo_Credito_Debito SCD ");
             sql.Append("WHERE SCD.Cliente_Id = @Cliente_Id");
 
@@ -73,11 +69,16 @@ namespace Controle.Credito.Listar
             {
                 crud.LimparParametros();
                 crud.AdicionarParamentro("Cliente_Id", idCliente);
-
-
-                return decimal.Parse(crud.Executar(CommandType.Text, sql.ToString()).ToString());
-
-
+                decimal saldo = 0;
+                bool sucesso = decimal.TryParse(crud.Executar(CommandType.Text, sql.ToString()).ToString(), out saldo);
+                if (sucesso)
+                {
+                    return saldo;
+                }
+                else
+                {
+                    return 0;
+                }
             }
             catch (Exception ex)
             {

@@ -146,6 +146,12 @@
     <Compile Include="FrmConsVenda.Designer.cs">
       <DependentUpon>FrmConsVenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmExtrato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmExtrato.Designer.cs">
+      <DependentUpon>FrmExtrato.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     <EmbeddedResource Include="FrmConsVenda.resx">
       <DependentUpon>FrmConsVenda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmExtrato.resx">
+      <DependentUpon>FrmExtrato.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +235,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PratoComida.ico" />
+    <None Include="Resources\CD32.ico" />
+    <None Include="Resources\Extrato32.ico" />
     <None Include="Resources\Debito32.ico" />
     <None Include="Resources\Credito32.ico" />
     <None Include="Resources\Venda1-32.ico" />

@@ -46,29 +46,29 @@ namespace Rango
 
 
                 //Testar se o saldo é suficiente para comprar itens
-                int qtd = int.Parse(TxtQuantidade.Text.Trim());
-                decimal vlrUnitario = decimal.Parse(TxtValor.Text);
-                decimal total = qtd * vlrUnitario;
+                //int qtd = int.Parse(TxtQuantidade.Text.Trim());
+                //decimal vlrUnitario = decimal.Parse(TxtValor.Text);
+                //decimal total = qtd * vlrUnitario;
 
                 switch (opc)
                 {
                     case 'G':
-                        if (valorCredito <= total)
-                        {
-                            MessageBox.Show($"Saldo insuficiente para o valor de {total.ToString("#,#00.00")}!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            TxtQuantidade.Text = "0";
-                            return;
-                        }
+                        //if (valorCredito <= total)
+                        //{
+                        //    MessageBox.Show($"Saldo insuficiente para o valor de {total.ToString("#,#00.00")}!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //    TxtQuantidade.Text = "0";
+                        //    return;
+                        //}
 
                         gravar.Cadastro(debito);
                         break;
                     case 'A':
-                        if (valorCredito <= total)
-                        {
-                            MessageBox.Show($"Saldo insuficiente para o valor de {total.ToString("#,#00.00")}", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            TxtQuantidade.Text = "0";
-                            return;
-                        }
+                        //if (valorCredito <= total)
+                        //{
+                        //    MessageBox.Show($"Saldo insuficiente para o valor de {total.ToString("#,#00.00")}", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //    TxtQuantidade.Text = "0";
+                        //    return;
+                        //}
 
                         alterar.Cadastro(debito);
                         break;

@@ -32,6 +32,10 @@ namespace Rango
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.MenuPrincipal = new System.Windows.Forms.MenuStrip();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblDataHoraAtual = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.MenuCadastro = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuCadastroCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuCadastroProduto = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,11 +53,10 @@ namespace Rango
             this.SubMenuRetConsultaDebito = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuSaldo = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuSaldoConsulta = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuExtrato = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuExtratoProduto = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuExtratoCD = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblDataHoraAtual = new System.Windows.Forms.ToolStripStatusLabel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.MenuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -67,169 +70,13 @@ namespace Rango
             this.MenuVenda,
             this.MenuRetirada,
             this.MenuSaldo,
+            this.MenuExtrato,
             this.MenuSair});
             this.MenuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.MenuPrincipal.Name = "MenuPrincipal";
             this.MenuPrincipal.Size = new System.Drawing.Size(1066, 40);
             this.MenuPrincipal.TabIndex = 0;
             this.MenuPrincipal.Text = "menuStrip1";
-            // 
-            // MenuCadastro
-            // 
-            this.MenuCadastro.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SubMenuCadastroCliente,
-            this.SubMenuCadastroProduto});
-            this.MenuCadastro.Image = global::Rango.Properties.Resources.Cadastro32;
-            this.MenuCadastro.Name = "MenuCadastro";
-            this.MenuCadastro.Size = new System.Drawing.Size(98, 36);
-            this.MenuCadastro.Text = "&Cadastro";
-            // 
-            // SubMenuCadastroCliente
-            // 
-            this.SubMenuCadastroCliente.Image = global::Rango.Properties.Resources.ClienteAdd32;
-            this.SubMenuCadastroCliente.Name = "SubMenuCadastroCliente";
-            this.SubMenuCadastroCliente.Size = new System.Drawing.Size(117, 22);
-            this.SubMenuCadastroCliente.Text = "&Cliente";
-            this.SubMenuCadastroCliente.Click += new System.EventHandler(this.SubMenuCadastroCliente_Click);
-            // 
-            // SubMenuCadastroProduto
-            // 
-            this.SubMenuCadastroProduto.Image = global::Rango.Properties.Resources.Produto32;
-            this.SubMenuCadastroProduto.Name = "SubMenuCadastroProduto";
-            this.SubMenuCadastroProduto.Size = new System.Drawing.Size(117, 22);
-            this.SubMenuCadastroProduto.Text = "&Produto";
-            this.SubMenuCadastroProduto.Click += new System.EventHandler(this.SubMenuCadastroProduto_Click);
-            // 
-            // MenuVenda
-            // 
-            this.MenuVenda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SubMenuVendaProduto,
-            this.SubMenuVendaCredito,
-            this.SubMenuVendaConsulta});
-            this.MenuVenda.Image = global::Rango.Properties.Resources.Venda32;
-            this.MenuVenda.Name = "MenuVenda";
-            this.MenuVenda.Size = new System.Drawing.Size(83, 36);
-            this.MenuVenda.Text = "&Venda";
-            // 
-            // SubMenuVendaProduto
-            // 
-            this.SubMenuVendaProduto.Image = global::Rango.Properties.Resources.Venda1_32;
-            this.SubMenuVendaProduto.Name = "SubMenuVendaProduto";
-            this.SubMenuVendaProduto.Size = new System.Drawing.Size(121, 22);
-            this.SubMenuVendaProduto.Text = "&Produto";
-            this.SubMenuVendaProduto.Click += new System.EventHandler(this.SubMenuVendaCadastro_Click);
-            // 
-            // SubMenuVendaCredito
-            // 
-            this.SubMenuVendaCredito.Image = global::Rango.Properties.Resources.Credito32;
-            this.SubMenuVendaCredito.Name = "SubMenuVendaCredito";
-            this.SubMenuVendaCredito.Size = new System.Drawing.Size(121, 22);
-            this.SubMenuVendaCredito.Text = "&Crédito";
-            this.SubMenuVendaCredito.Click += new System.EventHandler(this.SubMenuVendaCredito_Click);
-            // 
-            // SubMenuVendaConsulta
-            // 
-            this.SubMenuVendaConsulta.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SubMenuVenConsultaProduto,
-            this.SubMenuVenConsultaCredito});
-            this.SubMenuVendaConsulta.Image = global::Rango.Properties.Resources.Consulta32;
-            this.SubMenuVendaConsulta.Name = "SubMenuVendaConsulta";
-            this.SubMenuVendaConsulta.Size = new System.Drawing.Size(121, 22);
-            this.SubMenuVendaConsulta.Text = "Cons&ulta";
-            // 
-            // SubMenuVenConsultaProduto
-            // 
-            this.SubMenuVenConsultaProduto.Image = global::Rango.Properties.Resources.Produto32;
-            this.SubMenuVenConsultaProduto.Name = "SubMenuVenConsultaProduto";
-            this.SubMenuVenConsultaProduto.Size = new System.Drawing.Size(117, 22);
-            this.SubMenuVenConsultaProduto.Text = "Produto";
-            this.SubMenuVenConsultaProduto.Click += new System.EventHandler(this.SubMenuVenConsultaProduto_Click);
-            // 
-            // SubMenuVenConsultaCredito
-            // 
-            this.SubMenuVenConsultaCredito.Image = global::Rango.Properties.Resources.Credito32;
-            this.SubMenuVenConsultaCredito.Name = "SubMenuVenConsultaCredito";
-            this.SubMenuVenConsultaCredito.Size = new System.Drawing.Size(117, 22);
-            this.SubMenuVenConsultaCredito.Text = "Crédito";
-            this.SubMenuVenConsultaCredito.Click += new System.EventHandler(this.SubMenuVenConsultaCredito_Click);
-            // 
-            // MenuRetirada
-            // 
-            this.MenuRetirada.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SubMenuRetiradaProduto,
-            this.SubMenuRetiradaDebito,
-            this.SubMenuRetiradaConsulta});
-            this.MenuRetirada.Image = global::Rango.Properties.Resources.Retirada32;
-            this.MenuRetirada.Name = "MenuRetirada";
-            this.MenuRetirada.Size = new System.Drawing.Size(94, 36);
-            this.MenuRetirada.Text = "&Retirada";
-            // 
-            // SubMenuRetiradaProduto
-            // 
-            this.SubMenuRetiradaProduto.Image = global::Rango.Properties.Resources.Retirada1_32;
-            this.SubMenuRetiradaProduto.Name = "SubMenuRetiradaProduto";
-            this.SubMenuRetiradaProduto.Size = new System.Drawing.Size(196, 38);
-            this.SubMenuRetiradaProduto.Text = "&Produto";
-            this.SubMenuRetiradaProduto.Click += new System.EventHandler(this.SubMenuRetiradaCadastro_Click);
-            // 
-            // SubMenuRetiradaDebito
-            // 
-            this.SubMenuRetiradaDebito.Image = global::Rango.Properties.Resources.Debito32;
-            this.SubMenuRetiradaDebito.Name = "SubMenuRetiradaDebito";
-            this.SubMenuRetiradaDebito.Size = new System.Drawing.Size(196, 38);
-            this.SubMenuRetiradaDebito.Text = "&Débito";
-            this.SubMenuRetiradaDebito.Click += new System.EventHandler(this.SubMenuRetiradaDebito_Click);
-            // 
-            // SubMenuRetiradaConsulta
-            // 
-            this.SubMenuRetiradaConsulta.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SubMenuRetConsultaProduto,
-            this.SubMenuRetConsultaDebito});
-            this.SubMenuRetiradaConsulta.Image = global::Rango.Properties.Resources.Consulta32;
-            this.SubMenuRetiradaConsulta.Name = "SubMenuRetiradaConsulta";
-            this.SubMenuRetiradaConsulta.Size = new System.Drawing.Size(196, 38);
-            this.SubMenuRetiradaConsulta.Text = "Cons&ulta";
-            // 
-            // SubMenuRetConsultaProduto
-            // 
-            this.SubMenuRetConsultaProduto.Image = global::Rango.Properties.Resources.Produto32;
-            this.SubMenuRetConsultaProduto.Name = "SubMenuRetConsultaProduto";
-            this.SubMenuRetConsultaProduto.Size = new System.Drawing.Size(196, 38);
-            this.SubMenuRetConsultaProduto.Text = "Produto";
-            this.SubMenuRetConsultaProduto.Click += new System.EventHandler(this.SubMenuRetConsultaProduto_Click);
-            // 
-            // SubMenuRetConsultaDebito
-            // 
-            this.SubMenuRetConsultaDebito.Image = global::Rango.Properties.Resources.Debito32;
-            this.SubMenuRetConsultaDebito.Name = "SubMenuRetConsultaDebito";
-            this.SubMenuRetConsultaDebito.Size = new System.Drawing.Size(196, 38);
-            this.SubMenuRetConsultaDebito.Text = "Débito";
-            this.SubMenuRetConsultaDebito.Click += new System.EventHandler(this.SubMenuRetConsultaDebito_Click);
-            // 
-            // MenuSaldo
-            // 
-            this.MenuSaldo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SubMenuSaldoConsulta});
-            this.MenuSaldo.Image = global::Rango.Properties.Resources.Saldo32;
-            this.MenuSaldo.Name = "MenuSaldo";
-            this.MenuSaldo.Size = new System.Drawing.Size(80, 36);
-            this.MenuSaldo.Text = "&Saldo";
-            // 
-            // SubMenuSaldoConsulta
-            // 
-            this.SubMenuSaldoConsulta.Image = global::Rango.Properties.Resources.Consulta32;
-            this.SubMenuSaldoConsulta.Name = "SubMenuSaldoConsulta";
-            this.SubMenuSaldoConsulta.Size = new System.Drawing.Size(121, 22);
-            this.SubMenuSaldoConsulta.Text = "&Consulta";
-            this.SubMenuSaldoConsulta.Click += new System.EventHandler(this.SubMenuSaldoConsulta_Click);
-            // 
-            // MenuSair
-            // 
-            this.MenuSair.Image = global::Rango.Properties.Resources.Sair32;
-            this.MenuSair.Name = "MenuSair";
-            this.MenuSair.Size = new System.Drawing.Size(70, 36);
-            this.MenuSair.Text = "Sair";
-            this.MenuSair.Click += new System.EventHandler(this.MenuSair_Click);
             // 
             // statusStrip1
             // 
@@ -259,6 +106,187 @@ namespace Rango
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // MenuCadastro
+            // 
+            this.MenuCadastro.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuCadastroCliente,
+            this.SubMenuCadastroProduto});
+            this.MenuCadastro.Image = global::Rango.Properties.Resources.Cadastro32;
+            this.MenuCadastro.Name = "MenuCadastro";
+            this.MenuCadastro.Size = new System.Drawing.Size(98, 36);
+            this.MenuCadastro.Text = "&Cadastro";
+            // 
+            // SubMenuCadastroCliente
+            // 
+            this.SubMenuCadastroCliente.Image = global::Rango.Properties.Resources.ClienteAdd32;
+            this.SubMenuCadastroCliente.Name = "SubMenuCadastroCliente";
+            this.SubMenuCadastroCliente.Size = new System.Drawing.Size(133, 38);
+            this.SubMenuCadastroCliente.Text = "&Cliente";
+            this.SubMenuCadastroCliente.Click += new System.EventHandler(this.SubMenuCadastroCliente_Click);
+            // 
+            // SubMenuCadastroProduto
+            // 
+            this.SubMenuCadastroProduto.Image = global::Rango.Properties.Resources.Produto32;
+            this.SubMenuCadastroProduto.Name = "SubMenuCadastroProduto";
+            this.SubMenuCadastroProduto.Size = new System.Drawing.Size(133, 38);
+            this.SubMenuCadastroProduto.Text = "&Produto";
+            this.SubMenuCadastroProduto.Click += new System.EventHandler(this.SubMenuCadastroProduto_Click);
+            // 
+            // MenuVenda
+            // 
+            this.MenuVenda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuVendaProduto,
+            this.SubMenuVendaCredito,
+            this.SubMenuVendaConsulta});
+            this.MenuVenda.Image = global::Rango.Properties.Resources.Venda32;
+            this.MenuVenda.Name = "MenuVenda";
+            this.MenuVenda.Size = new System.Drawing.Size(83, 36);
+            this.MenuVenda.Text = "&Venda";
+            // 
+            // SubMenuVendaProduto
+            // 
+            this.SubMenuVendaProduto.Image = global::Rango.Properties.Resources.Venda1_32;
+            this.SubMenuVendaProduto.Name = "SubMenuVendaProduto";
+            this.SubMenuVendaProduto.Size = new System.Drawing.Size(137, 38);
+            this.SubMenuVendaProduto.Text = "&Produto";
+            this.SubMenuVendaProduto.Click += new System.EventHandler(this.SubMenuVendaCadastro_Click);
+            // 
+            // SubMenuVendaCredito
+            // 
+            this.SubMenuVendaCredito.Image = global::Rango.Properties.Resources.Credito32;
+            this.SubMenuVendaCredito.Name = "SubMenuVendaCredito";
+            this.SubMenuVendaCredito.Size = new System.Drawing.Size(137, 38);
+            this.SubMenuVendaCredito.Text = "&Crédito";
+            this.SubMenuVendaCredito.Click += new System.EventHandler(this.SubMenuVendaCredito_Click);
+            // 
+            // SubMenuVendaConsulta
+            // 
+            this.SubMenuVendaConsulta.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuVenConsultaProduto,
+            this.SubMenuVenConsultaCredito});
+            this.SubMenuVendaConsulta.Image = global::Rango.Properties.Resources.Consulta32;
+            this.SubMenuVendaConsulta.Name = "SubMenuVendaConsulta";
+            this.SubMenuVendaConsulta.Size = new System.Drawing.Size(137, 38);
+            this.SubMenuVendaConsulta.Text = "Cons&ulta";
+            // 
+            // SubMenuVenConsultaProduto
+            // 
+            this.SubMenuVenConsultaProduto.Image = global::Rango.Properties.Resources.Produto32;
+            this.SubMenuVenConsultaProduto.Name = "SubMenuVenConsultaProduto";
+            this.SubMenuVenConsultaProduto.Size = new System.Drawing.Size(133, 38);
+            this.SubMenuVenConsultaProduto.Text = "Produto";
+            this.SubMenuVenConsultaProduto.Click += new System.EventHandler(this.SubMenuVenConsultaProduto_Click);
+            // 
+            // SubMenuVenConsultaCredito
+            // 
+            this.SubMenuVenConsultaCredito.Image = global::Rango.Properties.Resources.Credito32;
+            this.SubMenuVenConsultaCredito.Name = "SubMenuVenConsultaCredito";
+            this.SubMenuVenConsultaCredito.Size = new System.Drawing.Size(133, 38);
+            this.SubMenuVenConsultaCredito.Text = "Crédito";
+            this.SubMenuVenConsultaCredito.Click += new System.EventHandler(this.SubMenuVenConsultaCredito_Click);
+            // 
+            // MenuRetirada
+            // 
+            this.MenuRetirada.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuRetiradaProduto,
+            this.SubMenuRetiradaDebito,
+            this.SubMenuRetiradaConsulta});
+            this.MenuRetirada.Image = global::Rango.Properties.Resources.Retirada32;
+            this.MenuRetirada.Name = "MenuRetirada";
+            this.MenuRetirada.Size = new System.Drawing.Size(94, 36);
+            this.MenuRetirada.Text = "&Retirada";
+            // 
+            // SubMenuRetiradaProduto
+            // 
+            this.SubMenuRetiradaProduto.Image = global::Rango.Properties.Resources.Retirada1_32;
+            this.SubMenuRetiradaProduto.Name = "SubMenuRetiradaProduto";
+            this.SubMenuRetiradaProduto.Size = new System.Drawing.Size(137, 38);
+            this.SubMenuRetiradaProduto.Text = "&Produto";
+            this.SubMenuRetiradaProduto.Click += new System.EventHandler(this.SubMenuRetiradaCadastro_Click);
+            // 
+            // SubMenuRetiradaDebito
+            // 
+            this.SubMenuRetiradaDebito.Image = global::Rango.Properties.Resources.Debito32;
+            this.SubMenuRetiradaDebito.Name = "SubMenuRetiradaDebito";
+            this.SubMenuRetiradaDebito.Size = new System.Drawing.Size(137, 38);
+            this.SubMenuRetiradaDebito.Text = "&Débito";
+            this.SubMenuRetiradaDebito.Click += new System.EventHandler(this.SubMenuRetiradaDebito_Click);
+            // 
+            // SubMenuRetiradaConsulta
+            // 
+            this.SubMenuRetiradaConsulta.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuRetConsultaProduto,
+            this.SubMenuRetConsultaDebito});
+            this.SubMenuRetiradaConsulta.Image = global::Rango.Properties.Resources.Consulta32;
+            this.SubMenuRetiradaConsulta.Name = "SubMenuRetiradaConsulta";
+            this.SubMenuRetiradaConsulta.Size = new System.Drawing.Size(137, 38);
+            this.SubMenuRetiradaConsulta.Text = "Cons&ulta";
+            // 
+            // SubMenuRetConsultaProduto
+            // 
+            this.SubMenuRetConsultaProduto.Image = global::Rango.Properties.Resources.Produto32;
+            this.SubMenuRetConsultaProduto.Name = "SubMenuRetConsultaProduto";
+            this.SubMenuRetConsultaProduto.Size = new System.Drawing.Size(133, 38);
+            this.SubMenuRetConsultaProduto.Text = "Produto";
+            this.SubMenuRetConsultaProduto.Click += new System.EventHandler(this.SubMenuRetConsultaProduto_Click);
+            // 
+            // SubMenuRetConsultaDebito
+            // 
+            this.SubMenuRetConsultaDebito.Image = global::Rango.Properties.Resources.Debito32;
+            this.SubMenuRetConsultaDebito.Name = "SubMenuRetConsultaDebito";
+            this.SubMenuRetConsultaDebito.Size = new System.Drawing.Size(133, 38);
+            this.SubMenuRetConsultaDebito.Text = "Débito";
+            this.SubMenuRetConsultaDebito.Click += new System.EventHandler(this.SubMenuRetConsultaDebito_Click);
+            // 
+            // MenuSaldo
+            // 
+            this.MenuSaldo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuSaldoConsulta});
+            this.MenuSaldo.Image = global::Rango.Properties.Resources.Saldo32;
+            this.MenuSaldo.Name = "MenuSaldo";
+            this.MenuSaldo.Size = new System.Drawing.Size(80, 36);
+            this.MenuSaldo.Text = "&Saldo";
+            // 
+            // SubMenuSaldoConsulta
+            // 
+            this.SubMenuSaldoConsulta.Image = global::Rango.Properties.Resources.Consulta32;
+            this.SubMenuSaldoConsulta.Name = "SubMenuSaldoConsulta";
+            this.SubMenuSaldoConsulta.Size = new System.Drawing.Size(137, 38);
+            this.SubMenuSaldoConsulta.Text = "&Consulta";
+            this.SubMenuSaldoConsulta.Click += new System.EventHandler(this.SubMenuSaldoConsulta_Click);
+            // 
+            // MenuExtrato
+            // 
+            this.MenuExtrato.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SubMenuExtratoProduto,
+            this.SubMenuExtratoCD});
+            this.MenuExtrato.Image = global::Rango.Properties.Resources.Extrato32;
+            this.MenuExtrato.Name = "MenuExtrato";
+            this.MenuExtrato.Size = new System.Drawing.Size(88, 36);
+            this.MenuExtrato.Text = "Extrato";
+            // 
+            // SubMenuExtratoProduto
+            // 
+            this.SubMenuExtratoProduto.Image = global::Rango.Properties.Resources.Produto32;
+            this.SubMenuExtratoProduto.Name = "SubMenuExtratoProduto";
+            this.SubMenuExtratoProduto.Size = new System.Drawing.Size(196, 38);
+            this.SubMenuExtratoProduto.Text = "Produto";
+            // 
+            // SubMenuExtratoCD
+            // 
+            this.SubMenuExtratoCD.Image = global::Rango.Properties.Resources.CD32;
+            this.SubMenuExtratoCD.Name = "SubMenuExtratoCD";
+            this.SubMenuExtratoCD.Size = new System.Drawing.Size(196, 38);
+            this.SubMenuExtratoCD.Text = "Crédito/Débito";
+            // 
+            // MenuSair
+            // 
+            this.MenuSair.Image = global::Rango.Properties.Resources.Sair32;
+            this.MenuSair.Name = "MenuSair";
+            this.MenuSair.Size = new System.Drawing.Size(70, 36);
+            this.MenuSair.Text = "Sair";
+            this.MenuSair.Click += new System.EventHandler(this.MenuSair_Click);
             // 
             // FrmPrincipal
             // 
@@ -306,6 +334,9 @@ namespace Rango
         private System.Windows.Forms.ToolStripMenuItem SubMenuVenConsultaCredito;
         private System.Windows.Forms.ToolStripMenuItem SubMenuRetConsultaProduto;
         private System.Windows.Forms.ToolStripMenuItem SubMenuRetConsultaDebito;
+        private System.Windows.Forms.ToolStripMenuItem MenuExtrato;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuExtratoProduto;
+        private System.Windows.Forms.ToolStripMenuItem SubMenuExtratoCD;
     }
 }
 

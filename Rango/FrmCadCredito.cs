@@ -61,7 +61,7 @@ namespace Rango
                 BtnGravar.Enabled = true;
                 CbxCliente.Enabled = true;
                 MktData.Text = DateTime.Now.ToString("d");
-                TxtValor.Clear();
+                TxtValor.Text = "0,00";
 
             }
             catch (Exception ex)

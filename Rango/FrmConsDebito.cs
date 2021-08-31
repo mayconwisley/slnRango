@@ -62,7 +62,7 @@ namespace Rango
             {
                 valor += decimal.Parse(item.Cells["Total"].Value.ToString());
             }
-            LblTotal.Text = $"Total: {valor.ToString("#,##0.00")}";
+            LblTotal.Text = $"Total Débito: {valor.ToString("#,##0.00")}";
 
         }
 
