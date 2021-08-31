@@ -169,11 +169,11 @@ Cliente_Id, Nome, Credito, Debito, Saldo
 AS
 SELECT Cliente_Id, Nome, SUM(Credito) AS Credito, SUM(Debito) AS Debito, (SUM(Credito) - SUM(Debito)) AS Saldo
 FROM (
-SELECT D.Cliente_Id, C.Nome, SUM(D.Valor) AS Debito, 0 AS Credito 
+SELECT D.Cliente_Id, C.Nome, SUM(D.Quantidade * D.Valor) AS Debito, 0 AS Credito 
 FROM Debito D
 INNER JOIN Cliente C ON D.Cliente_Id = C.Id
 INNER JOIN Produto P ON D.Produto_Id = P.Id
-GROUP BY D.Cliente_Id, C.Nome, Credito 
+GROUP BY D.Cliente_Id, C.Nome, D.Valor, Credito 
 
 UNION 
 
