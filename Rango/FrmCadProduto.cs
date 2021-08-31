@@ -63,8 +63,7 @@ namespace Rango
 
                 TxtDescricao.Clear();
                 TxtValor.Text = "0,00";
-                MktData.Clear();
-
+                
                 BtnAlterar.Enabled = false;
                 BtnExcluir.Enabled = false;
                 BtnGravar.Enabled = true;

@@ -21,8 +21,8 @@ namespace Rango
             InitializeComponent();
         }
 
-        int idCliente, idProduto, idDebito, qtdValidar;
-        decimal valorProduto = 0;
+        int idCliente, idProduto, idDebito;
+        decimal valorProduto = 0, valorCredito = 0;
 
         //Manipular dados de venda
         private void Manipular(char opc)
@@ -34,7 +34,7 @@ namespace Rango
 
             try
             {
-                debito.Id = idProduto;
+                debito.Id = idDebito;
                 debito.Cliente = new Objetos.Cliente.ClienteObjeto();
                 debito.Cliente.Id = idCliente;
                 debito.Produto = new Objetos.Produto.ProdutoObjeto();
@@ -44,14 +44,18 @@ namespace Rango
                 debito.Quantidade = int.Parse(TxtQuantidade.Text.Trim());
                 debito.Valor = decimal.Parse(TxtValor.Text.Trim());
 
+
+                //Testar se o saldo é suficiente para comprar itens
                 int qtd = int.Parse(TxtQuantidade.Text.Trim());
+                decimal vlrUnitario = decimal.Parse(TxtValor.Text);
+                decimal total = qtd * vlrUnitario;
 
                 switch (opc)
                 {
                     case 'G':
-                        if (qtd > qtdValidar)
+                        if (valorCredito <= total)
                         {
-                            MessageBox.Show($"Quantidade digitada {TxtQuantidade.Text} é maior que o saldo de {qtdValidar} disponivel!\n\nVerifique", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show($"Saldo insuficiente para o valor de {total.ToString("#,#00.00")}!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             TxtQuantidade.Text = "0";
                             return;
                         }
@@ -59,9 +63,9 @@ namespace Rango
                         gravar.Cadastro(debito);
                         break;
                     case 'A':
-                        if (qtd > qtdValidar)
+                        if (valorCredito <= total)
                         {
-                            MessageBox.Show($"Quantidade digitada {TxtQuantidade.Text} é maior que o saldo de {qtdValidar} disponivel!\n\nVerifique", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show($"Saldo insuficiente para o valor de {total.ToString("#,#00.00")}", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             TxtQuantidade.Text = "0";
                             return;
                         }
@@ -77,8 +81,7 @@ namespace Rango
                 }
 
                 Listar($"%{TxtPesquisa.Text.Trim()}%");
-                //ValidarSaldo(idCliente, idProduto);
-                LblSaldo.Text = $"Saldo Atual: {qtdValidar.ToString("00")}";
+                ValidarSaldo(idCliente);
 
                 BtnAlterar.Enabled = false;
                 BtnExcluir.Enabled = false;
@@ -105,22 +108,8 @@ namespace Rango
                 idProduto = int.Parse(CbxProduto.SelectedValue.ToString());
                 valorProduto = lista.ValorProduto(idProduto);
                 TxtIdProduto.Text = idProduto.ToString();
-
                 TxtValor.Text = valorProduto.ToString("#,##0.00");
 
-                //ValidarSaldo(idCliente, idProduto);
-                LblSaldo.Text = $"Saldo Atual: {qtdValidar.ToString("00")}";
-
-                if (qtdValidar <= 0)
-                {
-                    MessageBox.Show("Cliente não possui saldo para este ítem");
-                    TxtQuantidade.Enabled = false;
-                    TxtQuantidade.Text = "0";
-                }
-                else
-                {
-                    TxtQuantidade.Enabled = true;
-                }
             }
             catch (Exception ex)
             {
@@ -245,6 +234,7 @@ namespace Rango
             idCliente = int.Parse(CbxCliente.SelectedValue.ToString());
             TxtIdCliente.Text = idCliente.ToString();
             ListarProduto(idCliente);
+            ValidarSaldo(idCliente);
         }
 
         private void FrmCadDebito_Load(object sender, EventArgs e)
@@ -270,27 +260,22 @@ namespace Rango
             CbxCliente.DataSource = lista.IdNome();
         }
 
-        //private void ValidarSaldo(int idCliente, int idProduto)
-        //{
-        //    int qtdVenda, qtddebito;
+        private void ValidarSaldo(int idCliente)
+        {
+            Controle.Credito.Listar.Lista lista = new Controle.Credito.Listar.Lista();
 
-        //    Controle.Venda.Listar.Lista lista = new Controle.Venda.Listar.Lista();
-        //    Controle.debito.Listar.Lista lista1 = new Controle.debito.Listar.Lista();
-
-        //    qtdVenda = lista.Quantidade(idCliente, idProduto);
-        //    qtddebito = lista1.Quantidade(idCliente, idProduto);
-
-        //    qtdValidar = qtdVenda - qtddebito;
+            valorCredito = lista.SaldoAtual(idCliente);
+            LblSaldo.Text = $"Saldo Atual: {valorCredito.ToString("#,##0.00")}";
 
 
-        //}
+        }
 
         private void ListarProduto(int idCliente)
         {
-            Controle.Venda.Listar.Lista lista = new Controle.Venda.Listar.Lista();
+            Controle.Produto.Listar.Lista lista = new Controle.Produto.Listar.Lista();
             try
             {
-                CbxProduto.DataSource = lista.IdDescricao(idCliente);
+                CbxProduto.DataSource = lista.IdDescricao();
             }
             catch (Exception ex)
             {

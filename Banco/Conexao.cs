@@ -9,7 +9,7 @@ namespace Banco
         protected FbConnection fbConnection;
         static string strDiretorioBase = AppDomain.CurrentDomain.BaseDirectory.ToString();
 
-        private string strConexao = $@"User = sysdba; Password = masterkey; ServerType = 1; DataBase = {strDiretorioBase}Banco\Rango.fdb";
+        private string strConexao = $@"User = rango; Password = rango159; ServerType = 1; DataBase = {strDiretorioBase}Banco\Rango.fdb";
 
         protected bool Conectar()
         {

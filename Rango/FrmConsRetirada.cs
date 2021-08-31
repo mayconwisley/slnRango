@@ -40,6 +40,8 @@ namespace Rango
                 {
                     DgvLista.DataSource = lista.GeralCliente(idCliente);
                 }
+
+                SomarValor();
             }
             catch (Exception ex)
             {
@@ -47,6 +49,17 @@ namespace Rango
             }
         }
 
+        private void SomarValor()
+        {
+
+            decimal valor = 0;
+            foreach (DataGridViewRow item in DgvLista.Rows)
+            {
+                valor += decimal.Parse(item.Cells["Total"].Value.ToString());
+            }
+            LblTotal.Text = $"Total: {valor.ToString("#,##0.00")}";
+
+        }
 
         private void FrmConsRetirada_Load(object sender, EventArgs e)
         {

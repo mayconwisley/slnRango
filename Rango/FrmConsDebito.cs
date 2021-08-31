@@ -1,15 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Rango
 {
-    public partial class FrmConsSaldo : Form
+    public partial class FrmConsDebito : Form
     {
-        public FrmConsSaldo()
+        public FrmConsDebito()
         {
             InitializeComponent();
         }
-
         int idCliente;
 
         private void ListarCliente()
@@ -25,21 +31,21 @@ namespace Rango
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void Listar(int idCliente)
         {
-            Controle.Venda.Listar.Lista lista = new Controle.Venda.Listar.Lista();
+            Controle.Debito.Listar.Lista lista = new Controle.Debito.Listar.Lista();
 
             try
             {
                 if (CbGeral.Checked)
                 {
-                    DgvLista.DataSource = lista.Saldo();
+                    DgvLista.DataSource = lista.Geral("%%");
                 }
                 else
                 {
-                    DgvLista.DataSource = lista.SaldoCliente(idCliente);
+                    DgvLista.DataSource = lista.GeralId(idCliente);
                 }
+
                 SomarValor();
             }
             catch (Exception ex)
@@ -60,16 +66,15 @@ namespace Rango
 
         }
 
+        private void FrmConsDebito_Load(object sender, EventArgs e)
+        {
+            ListarCliente();
+        }
 
         private void TxtIdCliente_Leave(object sender, EventArgs e)
         {
             idCliente = int.Parse(TxtIdCliente.Text.Trim());
             CbxCliente.SelectedValue = idCliente;
-        }
-
-        private void FrmConsSaldo_Load(object sender, EventArgs e)
-        {
-            ListarCliente();
         }
 
         private void CbxCliente_SelectedIndexChanged(object sender, EventArgs e)
@@ -102,9 +107,10 @@ namespace Rango
                 idCliente = int.Parse(TxtIdCliente.Text.Trim());
                 CbxCliente.SelectedValue = idCliente;
             }
+
         }
 
-        private void FrmConsSaldo_KeyPress(object sender, KeyPressEventArgs e)
+        private void FrmConsDebito_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {

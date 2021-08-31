@@ -116,6 +116,18 @@
     <Compile Include="FrmCadVenda.Designer.cs">
       <DependentUpon>FrmCadVenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmConsCredito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsCredito.Designer.cs">
+      <DependentUpon>FrmConsCredito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConsDebito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsDebito.Designer.cs">
+      <DependentUpon>FrmConsDebito.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConsRetirada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +171,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCadVenda.resx">
       <DependentUpon>FrmCadVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsCredito.resx">
+      <DependentUpon>FrmConsCredito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsDebito.resx">
+      <DependentUpon>FrmConsDebito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsRetirada.resx">
       <DependentUpon>FrmConsRetirada.cs</DependentUpon>

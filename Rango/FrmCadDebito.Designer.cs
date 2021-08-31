@@ -29,10 +29,10 @@ namespace Rango
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.DgvLista = new System.Windows.Forms.DataGridView();
@@ -58,10 +58,10 @@ namespace Rango
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.MktData = new System.Windows.Forms.MaskedTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.LblSaldo = new System.Windows.Forms.Label();
             this.TxtIdProduto = new System.Windows.Forms.TextBox();
             this.CbxProduto = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.LblSaldo = new System.Windows.Forms.Label();
             this.TxtIdCliente = new System.Windows.Forms.TextBox();
             this.CbxCliente = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
@@ -83,7 +83,7 @@ namespace Rango
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(12, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(383, 437);
+            this.panel1.Size = new System.Drawing.Size(383, 438);
             this.panel1.TabIndex = 1;
             // 
             // groupBox8
@@ -167,9 +167,9 @@ namespace Rango
             // Data
             // 
             this.Data.DataPropertyName = "Data";
-            dataGridViewCellStyle73.Format = "d";
-            dataGridViewCellStyle73.NullValue = null;
-            this.Data.DefaultCellStyle = dataGridViewCellStyle73;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Data.DefaultCellStyle = dataGridViewCellStyle1;
             this.Data.HeaderText = "Data";
             this.Data.Name = "Data";
             this.Data.ReadOnly = true;
@@ -178,8 +178,8 @@ namespace Rango
             // Quantidade
             // 
             this.Quantidade.DataPropertyName = "Quantidade";
-            dataGridViewCellStyle74.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Quantidade.DefaultCellStyle = dataGridViewCellStyle74;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Quantidade.DefaultCellStyle = dataGridViewCellStyle2;
             this.Quantidade.HeaderText = "Quantidade";
             this.Quantidade.Name = "Quantidade";
             this.Quantidade.ReadOnly = true;
@@ -188,9 +188,9 @@ namespace Rango
             // Valor
             // 
             this.Valor.DataPropertyName = "Valor";
-            dataGridViewCellStyle75.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle75.Format = "C2";
-            this.Valor.DefaultCellStyle = dataGridViewCellStyle75;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "C2";
+            this.Valor.DefaultCellStyle = dataGridViewCellStyle3;
             this.Valor.HeaderText = "Valor";
             this.Valor.Name = "Valor";
             this.Valor.ReadOnly = true;
@@ -199,9 +199,9 @@ namespace Rango
             // Total
             // 
             this.Total.DataPropertyName = "Total";
-            dataGridViewCellStyle76.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle76.Format = "C2";
-            this.Total.DefaultCellStyle = dataGridViewCellStyle76;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "C2";
+            this.Total.DefaultCellStyle = dataGridViewCellStyle4;
             this.Total.HeaderText = "Total";
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
@@ -287,7 +287,7 @@ namespace Rango
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.TxtValor);
-            this.groupBox6.Location = new System.Drawing.Point(186, 138);
+            this.groupBox6.Location = new System.Drawing.Point(186, 140);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(79, 48);
             this.groupBox6.TabIndex = 4;
@@ -307,7 +307,7 @@ namespace Rango
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.TxtQuantidade);
-            this.groupBox5.Location = new System.Drawing.Point(101, 138);
+            this.groupBox5.Location = new System.Drawing.Point(101, 140);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(79, 48);
             this.groupBox5.TabIndex = 3;
@@ -329,7 +329,7 @@ namespace Rango
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.MktData);
-            this.groupBox4.Location = new System.Drawing.Point(6, 138);
+            this.groupBox4.Location = new System.Drawing.Point(6, 140);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(89, 48);
             this.groupBox4.TabIndex = 2;
@@ -347,24 +347,14 @@ namespace Rango
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.LblSaldo);
             this.groupBox3.Controls.Add(this.TxtIdProduto);
             this.groupBox3.Controls.Add(this.CbxProduto);
-            this.groupBox3.Location = new System.Drawing.Point(6, 73);
+            this.groupBox3.Location = new System.Drawing.Point(6, 86);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(259, 61);
+            this.groupBox3.Size = new System.Drawing.Size(259, 48);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Produto";
-            // 
-            // LblSaldo
-            // 
-            this.LblSaldo.AutoSize = true;
-            this.LblSaldo.Location = new System.Drawing.Point(6, 41);
-            this.LblSaldo.Name = "LblSaldo";
-            this.LblSaldo.Size = new System.Drawing.Size(79, 13);
-            this.LblSaldo.TabIndex = 2;
-            this.LblSaldo.Text = "Saldo Atual: 00";
             // 
             // TxtIdProduto
             // 
@@ -383,19 +373,29 @@ namespace Rango
             this.CbxProduto.Name = "CbxProduto";
             this.CbxProduto.Size = new System.Drawing.Size(188, 21);
             this.CbxProduto.TabIndex = 1;
-            this.CbxProduto.ValueMember = "Produto_Id";
+            this.CbxProduto.ValueMember = "Id";
             this.CbxProduto.SelectedIndexChanged += new System.EventHandler(this.CbxProduto_SelectedIndexChanged);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.LblSaldo);
             this.groupBox2.Controls.Add(this.TxtIdCliente);
             this.groupBox2.Controls.Add(this.CbxCliente);
             this.groupBox2.Location = new System.Drawing.Point(6, 19);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(259, 48);
+            this.groupBox2.Size = new System.Drawing.Size(259, 61);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cliente";
+            // 
+            // LblSaldo
+            // 
+            this.LblSaldo.AutoSize = true;
+            this.LblSaldo.Location = new System.Drawing.Point(5, 40);
+            this.LblSaldo.Name = "LblSaldo";
+            this.LblSaldo.Size = new System.Drawing.Size(88, 13);
+            this.LblSaldo.TabIndex = 2;
+            this.LblSaldo.Text = "Saldo Atual: 0,00";
             // 
             // TxtIdCliente
             // 
@@ -421,8 +421,9 @@ namespace Rango
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(406, 463);
+            this.ClientSize = new System.Drawing.Size(406, 460);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmCadDebito";

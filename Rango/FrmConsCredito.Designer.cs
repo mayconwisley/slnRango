@@ -1,7 +1,7 @@
 ﻿
 namespace Rango
 {
-    partial class FrmConsRetirada
+    partial class FrmConsCredito
     {
         /// <summary>
         /// Required designer variable.
@@ -29,27 +29,21 @@ namespace Rango
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.DgvLista = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Produto_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.CbGeral = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TxtIdCliente = new System.Windows.Forms.TextBox();
             this.CbxCliente = new System.Windows.Forms.ComboBox();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.LblTotal = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -66,7 +60,7 @@ namespace Rango
             this.panel1.Controls.Add(this.groupBox5);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Location = new System.Drawing.Point(13, 14);
+            this.panel1.Location = new System.Drawing.Point(10, 11);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(826, 436);
             this.panel1.TabIndex = 1;
@@ -93,12 +87,8 @@ namespace Rango
             this.Id,
             this.Cliente_Id,
             this.Nome,
-            this.Produto_Id,
-            this.Descricao,
             this.Data,
-            this.Quantidade,
-            this.Valor,
-            this.Total});
+            this.Valor});
             this.DgvLista.Location = new System.Drawing.Point(6, 13);
             this.DgvLista.MultiSelect = false;
             this.DgvLista.Name = "DgvLista";
@@ -106,88 +96,6 @@ namespace Rango
             this.DgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvLista.Size = new System.Drawing.Size(808, 309);
             this.DgvLista.TabIndex = 0;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            this.Id.Width = 41;
-            // 
-            // Cliente_Id
-            // 
-            this.Cliente_Id.DataPropertyName = "Cliente_Id";
-            this.Cliente_Id.HeaderText = "Cliente_Id";
-            this.Cliente_Id.Name = "Cliente_Id";
-            this.Cliente_Id.ReadOnly = true;
-            this.Cliente_Id.Width = 79;
-            // 
-            // Nome
-            // 
-            this.Nome.DataPropertyName = "Nome";
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 60;
-            // 
-            // Produto_Id
-            // 
-            this.Produto_Id.DataPropertyName = "Produto_Id";
-            this.Produto_Id.HeaderText = "Produto_Id";
-            this.Produto_Id.Name = "Produto_Id";
-            this.Produto_Id.ReadOnly = true;
-            this.Produto_Id.Width = 84;
-            // 
-            // Descricao
-            // 
-            this.Descricao.DataPropertyName = "Descricao";
-            this.Descricao.HeaderText = "Descrição";
-            this.Descricao.Name = "Descricao";
-            this.Descricao.ReadOnly = true;
-            this.Descricao.Width = 80;
-            // 
-            // Data
-            // 
-            this.Data.DataPropertyName = "Data";
-            this.Data.HeaderText = "Data";
-            this.Data.Name = "Data";
-            this.Data.ReadOnly = true;
-            this.Data.Width = 55;
-            // 
-            // Quantidade
-            // 
-            this.Quantidade.DataPropertyName = "Quantidade";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Quantidade.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Quantidade.HeaderText = "Quantidade";
-            this.Quantidade.Name = "Quantidade";
-            this.Quantidade.ReadOnly = true;
-            this.Quantidade.Width = 87;
-            // 
-            // Valor
-            // 
-            this.Valor.DataPropertyName = "Valor";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "C2";
-            this.Valor.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Valor.HeaderText = "Valor";
-            this.Valor.Name = "Valor";
-            this.Valor.ReadOnly = true;
-            this.Valor.Width = 56;
-            // 
-            // Total
-            // 
-            this.Total.DataPropertyName = "Total";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "C2";
-            this.Total.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Width = 56;
             // 
             // groupBox1
             // 
@@ -198,7 +106,7 @@ namespace Rango
             this.groupBox1.Size = new System.Drawing.Size(367, 80);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Consulta Retirada Produto";
+            this.groupBox1.Text = "Consulta Crédito";
             // 
             // groupBox4
             // 
@@ -206,7 +114,7 @@ namespace Rango
             this.groupBox4.Location = new System.Drawing.Point(308, 16);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(51, 48);
-            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Geral";
             // 
@@ -255,13 +163,58 @@ namespace Rango
             this.CbxCliente.ValueMember = "Id";
             this.CbxCliente.SelectedIndexChanged += new System.EventHandler(this.CbxCliente_SelectedIndexChanged);
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            this.Id.Width = 41;
+            // 
+            // Cliente_Id
+            // 
+            this.Cliente_Id.DataPropertyName = "Cliente_Id";
+            this.Cliente_Id.HeaderText = "Cliente_Id";
+            this.Cliente_Id.Name = "Cliente_Id";
+            this.Cliente_Id.ReadOnly = true;
+            this.Cliente_Id.Width = 79;
+            // 
+            // Nome
+            // 
+            this.Nome.DataPropertyName = "Nome";
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 60;
+            // 
+            // Data
+            // 
+            this.Data.DataPropertyName = "Data";
+            this.Data.HeaderText = "Data";
+            this.Data.Name = "Data";
+            this.Data.ReadOnly = true;
+            this.Data.Width = 55;
+            // 
+            // Valor
+            // 
+            this.Valor.DataPropertyName = "Valor";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle3.Format = "C2";
+            this.Valor.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
+            this.Valor.ReadOnly = true;
+            this.Valor.Width = 56;
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.LblTotal);
             this.groupBox5.Location = new System.Drawing.Point(376, 3);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(200, 80);
-            this.groupBox5.TabIndex = 3;
+            this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Valor Total";
             // 
@@ -274,23 +227,23 @@ namespace Rango
             this.LblTotal.TabIndex = 0;
             this.LblTotal.Text = "Total: 0,00";
             // 
-            // FrmConsRetirada
+            // FrmConsCredito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 464);
+            this.ClientSize = new System.Drawing.Size(846, 458);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmConsRetirada";
+            this.Name = "FrmConsCredito";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Consulta Retirada Produto";
-            this.Load += new System.EventHandler(this.FrmConsRetirada_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmConsRetirada_KeyPress);
+            this.Text = "Consulta Crédito";
+            this.Load += new System.EventHandler(this.FrmConsCredito_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmConsCredito_KeyPress);
             this.panel1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DgvLista)).EndInit();
@@ -319,12 +272,8 @@ namespace Rango
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente_Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Produto_Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label LblTotal;
     }

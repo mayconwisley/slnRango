@@ -13,7 +13,7 @@ namespace Controle.Debito
             Crud crud = new Crud();
             StringBuilder sql = new StringBuilder();
 
-            sql.Append("DELETE FROM Retirada ");
+            sql.Append("DELETE FROM Debito ");
             sql.Append("WHERE Id = @Id");
 
             try

@@ -162,8 +162,33 @@ FROM (
 )
 GROUP BY CLIENTE_ID, Nome, PRODUTO_ID, Descricao, Valor;
 
-GRANT ALL ON Cliente TO sysdba;
-GRANT ALL ON Produto TO sysdba;
-GRANT ALL ON Retirada TO sysdba;
-GRANT ALL ON Venda TO sysdba;
-GRANT ALL ON Saldo_Cliente TO sysdba;
+CREATE VIEW Saldo_Credito_Debito
+(
+Cliente_Id, Nome, Credito, Debito, Saldo
+)
+AS
+SELECT Cliente_Id, Nome, SUM(Credito) AS Credito, SUM(Debito) AS Debito, (SUM(Credito) - SUM(Debito)) AS Saldo
+FROM (
+SELECT D.Cliente_Id, C.Nome, SUM(D.Valor) AS Debito, 0 AS Credito 
+FROM Debito D
+INNER JOIN Cliente C ON D.Cliente_Id = C.Id
+INNER JOIN Produto P ON D.Produto_Id = P.Id
+GROUP BY D.Cliente_Id, C.Nome, Credito 
+
+UNION 
+
+SELECT CR.Cliente_Id,C.Nome, 0 AS G, SUM(CR.Valor) AS Credito
+FROM Credito CR
+INNER JOIN Cliente C ON CR.Cliente_Id = C.Id
+GROUP BY CR.Cliente_Id,C.Nome, G
+)
+GROUP BY Cliente_Id, Nome
+
+GRANT ALL ON Cliente TO rango;
+GRANT ALL ON Produto TO rango;
+GRANT ALL ON Retirada TO rango;
+GRANT ALL ON Venda TO rango;
+GRANT ALL ON Saldo_Cliente TO rango;
+GRANT ALL ON Credito TO rango;
+GRANT ALL ON Debito TO rango;
+GRANT ALL ON Saldo_Credito_Debito TO rango;

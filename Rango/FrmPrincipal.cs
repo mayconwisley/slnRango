@@ -50,18 +50,6 @@ namespace Rango
             frmConsSaldo.ShowDialog();
         }
 
-        private void SubMenuRetiradaConsulta_Click(object sender, EventArgs e)
-        {
-            FrmConsRetirada frmConsRetirada = new FrmConsRetirada();
-            frmConsRetirada.ShowDialog();
-        }
-
-        private void SubMenuVendaConsulta_Click(object sender, EventArgs e)
-        {
-            FrmConsVenda frmConsVenda = new FrmConsVenda();
-            frmConsVenda.ShowDialog();
-        }
-
         private void SubMenuVendaCredito_Click(object sender, EventArgs e)
         {
             FrmCadCredito frmCadCredito = new FrmCadCredito();
@@ -72,6 +60,30 @@ namespace Rango
         {
             FrmCadDebito frmCadDebito = new FrmCadDebito();
             frmCadDebito.ShowDialog();
+        }
+
+        private void SubMenuRetConsultaProduto_Click(object sender, EventArgs e)
+        {
+            FrmConsRetirada frmConsRetirada = new FrmConsRetirada();
+            frmConsRetirada.ShowDialog();
+        }
+
+        private void SubMenuVenConsultaProduto_Click(object sender, EventArgs e)
+        {
+            FrmConsVenda frmConsVenda = new FrmConsVenda();
+            frmConsVenda.ShowDialog();
+        }
+
+        private void SubMenuVenConsultaCredito_Click(object sender, EventArgs e)
+        {
+            FrmConsCredito frmConsCredito = new FrmConsCredito();
+            frmConsCredito.ShowDialog();
+        }
+
+        private void SubMenuRetConsultaDebito_Click(object sender, EventArgs e)
+        {
+            FrmConsDebito frmConsDebito = new FrmConsDebito();
+            frmConsDebito.ShowDialog();
         }
     }
 }
