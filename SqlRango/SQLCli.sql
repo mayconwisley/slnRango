@@ -182,7 +182,29 @@ FROM Credito CR
 INNER JOIN Cliente C ON CR.Cliente_Id = C.Id
 GROUP BY CR.Cliente_Id,C.Nome, G
 )
-GROUP BY Cliente_Id, Nome
+GROUP BY Cliente_Id, Nome;
+
+CREATE VIEW Extrato_Produto(
+    Cliente_Id, Nome, Produto_Id, Descricao, Data, Retirada, Venda, Valor, Total, Info
+)
+AS
+
+SELECT V.CLIENTE_ID, C.Nome, V.PRODUTO_ID, P.Descricao, V.Data, 0 AS Retirada, SUM( V.QUANTIDADE) AS Venda, V.VALOR, SUM( V.QUANTIDADE) * V.Valor AS Total, 'Venda' AS Info
+FROM VENDA V
+INNER JOIN Cliente C ON V.Cliente_Id = C.Id
+INNER JOIN Produto P ON V.Produto_Id = P.Id
+GROUP BY V.CLIENTE_ID, C.Nome, V.PRODUTO_ID, P.Descricao, V.Data, Retirada, V.VALOR
+
+UNION ALL
+
+SELECT R.CLIENTE_ID, C.Nome, R.PRODUTO_ID, P.Descricao, R.Data, SUM( R.QUANTIDADE), 0 AS Venda, R.VALOR, SUM( R.QUANTIDADE) * R.Valor AS Total, 'Retirada' AS Info
+FROM RETIRADA R
+INNER JOIN Cliente C ON R.Cliente_Id = C.Id
+INNER JOIN Produto P ON R.Produto_Id = P.Id
+GROUP BY R.CLIENTE_ID, C.Nome, R.PRODUTO_ID, P.Descricao, R.Data, Venda, R.VALOR, Info;
+
+
+GRANT ALL ON Extrato_Produto TO rango;
 
 GRANT ALL ON Cliente TO rango;
 GRANT ALL ON Produto TO rango;

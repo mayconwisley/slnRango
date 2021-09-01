@@ -78,6 +78,7 @@
     <Compile Include="Produto\Gravar.cs" />
     <Compile Include="Produto\Listar\Lista.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Relatorio\Extrato.cs" />
     <Compile Include="Retirada\Alterar.cs" />
     <Compile Include="Retirada\Excluir.cs" />
     <Compile Include="Retirada\Gravar.cs" />

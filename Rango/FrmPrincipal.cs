@@ -85,5 +85,11 @@ namespace Rango
             FrmConsDebito frmConsDebito = new FrmConsDebito();
             frmConsDebito.ShowDialog();
         }
+
+        private void SubMenuExtratoListar_Click(object sender, EventArgs e)
+        {
+            FrmExtrato frmExtrato = new FrmExtrato();
+            frmExtrato.ShowDialog();
+        }
     }
 }
