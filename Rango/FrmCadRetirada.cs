@@ -37,27 +37,27 @@ namespace Rango
                 retirada.Quantidade = int.Parse(TxtQuantidade.Text.Trim());
                 retirada.Valor = decimal.Parse(TxtValor.Text.Trim());
 
-                int qtd = int.Parse(TxtQuantidade.Text.Trim());
+                //int qtd = int.Parse(TxtQuantidade.Text.Trim());
 
                 switch (opc)
                 {
                     case 'G':
-                        if (qtd > qtdValidar)
-                        {
-                            MessageBox.Show($"Quantidade digitada {TxtQuantidade.Text} é maior que o saldo de {qtdValidar} disponivel!\n\nVerifique", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            TxtQuantidade.Text = "0";
-                            return;
-                        }
+                        //if (qtd > qtdValidar)
+                        //{
+                        //    MessageBox.Show($"Quantidade digitada {TxtQuantidade.Text} é maior que o saldo de {qtdValidar} disponivel!\n\nVerifique", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //    TxtQuantidade.Text = "0";
+                        //    return;
+                        //}
 
                         gravar.Cadastro(retirada);
                         break;
                     case 'A':
-                        if (qtd > qtdValidar)
-                        {
-                            MessageBox.Show($"Quantidade digitada {TxtQuantidade.Text} é maior que o saldo de {qtdValidar} disponivel!\n\nVerifique", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            TxtQuantidade.Text = "0";
-                            return;
-                        }
+                        //if (qtd > qtdValidar)
+                        //{
+                        //    MessageBox.Show($"Quantidade digitada {TxtQuantidade.Text} é maior que o saldo de {qtdValidar} disponivel!\n\nVerifique", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //    TxtQuantidade.Text = "0";
+                        //    return;
+                        //}
 
                         alterar.Cadastro(retirada);
                         break;
@@ -70,7 +70,6 @@ namespace Rango
                 }
 
                 Listar($"%{TxtPesquisa.Text.Trim()}%");
-                ValidarSaldo(idCliente, idProduto);
                 LblSaldo.Text = $"Saldo Atual: {qtdValidar.ToString("00")}";
 
                 BtnAlterar.Enabled = false;
@@ -131,19 +130,19 @@ namespace Rango
 
                 TxtValor.Text = valorProduto.ToString("#,##0.00");
 
-                ValidarSaldo(idCliente, idProduto);
+                //ValidarSaldo(idCliente, idProduto);
                 LblSaldo.Text = $"Saldo Atual: {qtdValidar.ToString("00")}";
 
-                if (qtdValidar <= 0)
-                {
-                    MessageBox.Show("Cliente não possui saldo para este ítem");
-                    TxtQuantidade.Enabled = false;
-                    TxtQuantidade.Text = "0";
-                }
-                else
-                {
-                    TxtQuantidade.Enabled = true;
-                }
+                //if (qtdValidar <= 0)
+                //{
+                //    MessageBox.Show("Cliente não possui saldo para este ítem");
+                //    TxtQuantidade.Enabled = false;
+                //    TxtQuantidade.Text = "0";
+                //}
+                //else
+                //{
+                //    TxtQuantidade.Enabled = true;
+                //}
             }
             catch (Exception ex)
             {

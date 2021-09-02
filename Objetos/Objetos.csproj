@@ -65,6 +65,7 @@
     <Compile Include="Debito\DebitoObjeto.cs" />
     <Compile Include="Produto\ProdutoObjeto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Relatorio\ExtratoCDObejto.cs" />
     <Compile Include="Relatorio\ExtratoProdutoObjeto.cs" />
     <Compile Include="Retirada\RetiradaObjeto.cs" />
     <Compile Include="Venda\VendaObjeto.cs" />

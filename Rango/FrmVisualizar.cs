@@ -14,7 +14,7 @@ namespace Rango
 {
     public partial class FrmVisualizar : Form
     {
-        int idCliente;
+        int idCliente, rel;
         DateTime dataIncio, dataFim;
 
 
@@ -24,14 +24,16 @@ namespace Rango
         }
 
 
-        public FrmVisualizar(int idCliente, DateTime dataIncio, DateTime dataFim)
+        public FrmVisualizar(int rel, int idCliente, DateTime dataIncio, DateTime dataFim)
         {
             InitializeComponent();
 
             this.idCliente = idCliente;
+            this.rel = rel;
 
             this.dataIncio = dataIncio;
             this.dataFim = dataFim;
+
         }
 
         private void ListarRelatorio(int idCliente, DateTime dataIncio, DateTime dataFim)
@@ -44,21 +46,34 @@ namespace Rango
 
 
             DataTable dataTable = new DataTable();
-            dataTable = extrato.Produto(idCliente, dataIncio, dataFim);
 
+            try
+            {
+                if (rel == 1)
+                {
+                    dataTable = extrato.Produto(idCliente, dataIncio, dataFim);
+                    this.RpwRelatorio.LocalReport.DataSources.Clear();
+                    this.RpwRelatorio.LocalReport.DataSources.Add(new ReportDataSource("ExtratoProdutoDataSet", dataTable));
+                    this.RpwRelatorio.LocalReport.ReportPath = @"Relatorio\ExtratoProduto.rdlc";
+                }
+                else
+                {
+                    dataTable = extrato.CreDeb(idCliente, dataIncio, dataFim);
+                    this.RpwRelatorio.LocalReport.DataSources.Clear();
+                    this.RpwRelatorio.LocalReport.DataSources.Add(new ReportDataSource("ExtratoCreDebDataSet", dataTable));
+                    this.RpwRelatorio.LocalReport.ReportPath = @"Relatorio\ExtratoCreDeb.rdlc";
+                }
 
-
-            this.RpwRelatorio.LocalReport.DataSources.Clear();
-            this.RpwRelatorio.LocalReport.DataSources.Add(new ReportDataSource("ExtratoProdutoDataSet", dataTable));
-            this.RpwRelatorio.LocalReport.ReportPath = @"Relatorio\ExtratoProduto.rdlc";
-            this.RpwRelatorio.LocalReport.SetParameters(reportParameters);
-
-
-
-            this.RpwRelatorio.SetDisplayMode(DisplayMode.PrintLayout);
-            this.RpwRelatorio.ZoomMode = ZoomMode.Percent;
-            this.RpwRelatorio.ZoomPercent = 100;
-            this.RpwRelatorio.RefreshReport();
+                this.RpwRelatorio.LocalReport.SetParameters(reportParameters);
+                this.RpwRelatorio.SetDisplayMode(DisplayMode.PrintLayout);
+                this.RpwRelatorio.ZoomMode = ZoomMode.Percent;
+                this.RpwRelatorio.ZoomPercent = 100;
+                this.RpwRelatorio.RefreshReport();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 

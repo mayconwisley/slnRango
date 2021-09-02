@@ -48,6 +48,35 @@ namespace Rango
             ListarPeriodo();
         }
 
+
+        private void ListarRelatorio()
+        {
+
+            try
+            {
+                dataInicio = DateTime.Parse(MktDataInicio.Text);
+                dateFim = DateTime.Parse(MktDataFim.Text);
+                FrmVisualizar frmVisualizar = null;
+
+                if (RbProduto.Checked)
+                {
+                    frmVisualizar = new FrmVisualizar(1, idCliente, dataInicio, dateFim);
+                }
+
+                else
+                {
+                    frmVisualizar = new FrmVisualizar(2, idCliente, dataInicio, dateFim);
+
+                }
+                frmVisualizar.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
         private void TxtIdCliente_Leave(object sender, EventArgs e)
         {
             idCliente = int.Parse(TxtIdCliente.Text.Trim());
@@ -80,12 +109,7 @@ namespace Rango
 
         private void BtnGerar_Click(object sender, EventArgs e)
         {
-            dataInicio = DateTime.Parse(MktDataInicio.Text);
-            dateFim = DateTime.Parse(MktDataFim.Text);
-
-
-            FrmVisualizar frmVisualizar = new FrmVisualizar(idCliente, dataInicio, dateFim);
-            frmVisualizar.ShowDialog();
+            ListarRelatorio();
         }
     }
 }

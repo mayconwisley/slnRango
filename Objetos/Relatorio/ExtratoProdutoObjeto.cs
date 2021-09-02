@@ -18,6 +18,7 @@ namespace Objetos.Relatorio
         public decimal Valor { get; set; }
         public decimal Total { get; set; }
         public string Info { get; set; }
+        public decimal Saldo { get; set; }
 
 
     }

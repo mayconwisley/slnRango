@@ -232,10 +232,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Relatorio\ExtratoCreDeb.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Relatorio\ExtratoProduto.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Objetos.Relatorio.ExtratoCDObejto.datasource" />
     <None Include="Properties\DataSources\Objetos.Relatorio.ExtratoProdutoObjeto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -31,8 +31,8 @@ namespace Rango
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.RbCD = new System.Windows.Forms.RadioButton();
+            this.RbProduto = new System.Windows.Forms.RadioButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.BtnGerar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -64,8 +64,8 @@ namespace Rango
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.radioButton2);
-            this.groupBox5.Controls.Add(this.radioButton1);
+            this.groupBox5.Controls.Add(this.RbCD);
+            this.groupBox5.Controls.Add(this.RbProduto);
             this.groupBox5.Location = new System.Drawing.Point(8, 86);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(311, 38);
@@ -73,37 +73,37 @@ namespace Rango
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Opção";
             // 
-            // radioButton2
+            // RbCD
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.radioButton2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.radioButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.radioButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton2.Location = new System.Drawing.Point(175, 11);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(93, 17);
-            this.radioButton2.TabIndex = 0;
-            this.radioButton2.Text = "Crédito/Débito";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.RbCD.AutoSize = true;
+            this.RbCD.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.RbCD.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
+            this.RbCD.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.RbCD.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.RbCD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RbCD.Location = new System.Drawing.Point(175, 11);
+            this.RbCD.Name = "RbCD";
+            this.RbCD.Size = new System.Drawing.Size(93, 17);
+            this.RbCD.TabIndex = 0;
+            this.RbCD.Text = "Crédito/Débito";
+            this.RbCD.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // RbProduto
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.radioButton1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
-            this.radioButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.radioButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioButton1.Location = new System.Drawing.Point(41, 11);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(66, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Produtos";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.RbProduto.AutoSize = true;
+            this.RbProduto.Checked = true;
+            this.RbProduto.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.RbProduto.FlatAppearance.CheckedBackColor = System.Drawing.Color.Lime;
+            this.RbProduto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.RbProduto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.RbProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RbProduto.Location = new System.Drawing.Point(41, 11);
+            this.RbProduto.Name = "RbProduto";
+            this.RbProduto.Size = new System.Drawing.Size(66, 17);
+            this.RbProduto.TabIndex = 0;
+            this.RbProduto.TabStop = true;
+            this.RbProduto.Text = "Produtos";
+            this.RbProduto.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -252,7 +252,7 @@ namespace Rango
         private System.Windows.Forms.MaskedTextBox MktDataFim;
         private System.Windows.Forms.MaskedTextBox MktDataInicio;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton RbCD;
+        private System.Windows.Forms.RadioButton RbProduto;
     }
 }
