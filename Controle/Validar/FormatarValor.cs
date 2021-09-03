@@ -86,7 +86,7 @@ namespace Controle.Validar
             strValor = valor;
             if (valor == "")
             {
-                strValor = "0";
+                strValor = "1";
             }
             return strValor;
         }

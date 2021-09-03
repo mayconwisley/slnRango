@@ -37,27 +37,27 @@ namespace Rango
                 retirada.Quantidade = int.Parse(TxtQuantidade.Text.Trim());
                 retirada.Valor = decimal.Parse(TxtValor.Text.Trim());
 
-                //int qtd = int.Parse(TxtQuantidade.Text.Trim());
+                int qtd = int.Parse(TxtQuantidade.Text.Trim());
 
                 switch (opc)
                 {
                     case 'G':
-                        //if (qtd > qtdValidar)
-                        //{
-                        //    MessageBox.Show($"Quantidade digitada {TxtQuantidade.Text} é maior que o saldo de {qtdValidar} disponivel!\n\nVerifique", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //    TxtQuantidade.Text = "0";
-                        //    return;
-                        //}
+                        if (qtd <= 0)
+                        {
+                            MessageBox.Show($"É necessário digitar pelo menos 1 produto!\n\nVerifique", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            TxtQuantidade.Text = "1";
+                            return;
+                        }
 
                         gravar.Cadastro(retirada);
                         break;
                     case 'A':
-                        //if (qtd > qtdValidar)
-                        //{
-                        //    MessageBox.Show($"Quantidade digitada {TxtQuantidade.Text} é maior que o saldo de {qtdValidar} disponivel!\n\nVerifique", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //    TxtQuantidade.Text = "0";
-                        //    return;
-                        //}
+                        if (qtd > qtdValidar)
+                        {
+                            MessageBox.Show($"É necessário digitar pelo menos 1 produto!\n\nVerifique", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            TxtQuantidade.Text = "1";
+                            return;
+                        }
 
                         alterar.Cadastro(retirada);
                         break;
@@ -71,13 +71,13 @@ namespace Rango
 
                 Listar($"%{TxtPesquisa.Text.Trim()}%");
                 LblSaldo.Text = $"Saldo Atual: {qtdValidar.ToString("00")}";
-
+                ValidarSaldo(idCliente, idProduto);
                 BtnAlterar.Enabled = false;
                 BtnExcluir.Enabled = false;
                 BtnGravar.Enabled = true;
 
                 CbxCliente.Enabled = true;
-                TxtQuantidade.Text = "0";
+                TxtQuantidade.Text = "1";
                 MktData.Text = DateTime.Now.ToString("d");
 
             }
@@ -107,13 +107,19 @@ namespace Rango
         {
             int qtdVenda, qtdRetirada;
 
-            Controle.Venda.Listar.Lista lista = new Controle.Venda.Listar.Lista();
+            Controle.Produto.Listar.Lista lista = new Controle.Produto.Listar.Lista();
             Controle.Retirada.Listar.Lista lista1 = new Controle.Retirada.Listar.Lista();
+            Controle.Venda.Listar.Lista lista2 = new Controle.Venda.Listar.Lista();
 
-            qtdVenda = lista.Quantidade(idCliente, idProduto);
+
+            qtdVenda = lista2.Quantidade(idCliente, idProduto);
             qtdRetirada = lista1.Quantidade(idCliente, idProduto);
 
+            valorProduto = lista.ValorProduto(idProduto);
+
             qtdValidar = qtdVenda - qtdRetirada;
+
+            LblSaldo.Text = $"Saldo Atual: {qtdValidar.ToString("00")}";
 
 
         }
@@ -122,16 +128,15 @@ namespace Rango
         {
             try
             {
-                Controle.Produto.Listar.Lista lista = new Controle.Produto.Listar.Lista();
 
                 idProduto = int.Parse(CbxProduto.SelectedValue.ToString());
-                valorProduto = lista.ValorProduto(idProduto);
+
                 TxtIdProduto.Text = idProduto.ToString();
 
                 TxtValor.Text = valorProduto.ToString("#,##0.00");
 
-                //ValidarSaldo(idCliente, idProduto);
-                LblSaldo.Text = $"Saldo Atual: {qtdValidar.ToString("00")}";
+                ValidarSaldo(idCliente, idProduto);
+
 
                 //if (qtdValidar <= 0)
                 //{

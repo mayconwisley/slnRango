@@ -40,9 +40,23 @@ namespace Rango
                 switch (opc)
                 {
                     case 'G':
+                        if (venda.Quantidade <= 0)
+                        {
+                            MessageBox.Show($"É necessário digitar pelo menos 1 produto!\n\nVerifique", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            TxtQuantidade.Text = "1";
+                            return;
+                        }
+
                         gravar.Cadastro(venda);
                         break;
                     case 'A':
+                        if (venda.Quantidade <= 0)
+                        {
+                            MessageBox.Show($"É necessário digitar pelo menos 1 produto!\n\nVerifique", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            TxtQuantidade.Text = "1";
+                            return;
+                        }
+
                         alterar.Cadastro(venda);
                         break;
                     case 'E':
