@@ -158,6 +158,12 @@
     <Compile Include="FrmConsSaldo.Designer.cs">
       <DependentUpon>FrmConsSaldo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmConsulSaldoCD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsulSaldoCD.Designer.cs">
+      <DependentUpon>FrmConsulSaldoCD.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConsVenda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +221,9 @@
     <EmbeddedResource Include="FrmConsSaldo.resx">
       <DependentUpon>FrmConsSaldo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsulSaldoCD.resx">
+      <DependentUpon>FrmConsulSaldoCD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmConsVenda.resx">
       <DependentUpon>FrmConsVenda.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,7 +250,9 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Objetos.Relatorio.ExtratoCDObejto.datasource" />
     <None Include="Properties\DataSources\Objetos.Relatorio.ExtratoProdutoObjeto.datasource" />
+    <None Include="Properties\DataSources\Objetos.Relatorio.ExtratoSaldoAnterior.datasource" />
     <None Include="Properties\DataSources\Objetos.Relatorio.ExtratoSaldoAnteriorCDObjeto.datasource" />
+    <None Include="Properties\DataSources\Objetos.Relatorio.ExtratoSaldoAnteriorProdutoObjeto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -91,5 +91,11 @@ namespace Rango
             FrmExtrato frmExtrato = new FrmExtrato();
             frmExtrato.ShowDialog();
         }
+
+        private void SubMenuSaldoCD_Click(object sender, EventArgs e)
+        {
+            FrmConsulSaldoCD frmConsulSaldoCD = new FrmConsulSaldoCD();
+            frmConsulSaldoCD.ShowDialog();
+        }
     }
 }

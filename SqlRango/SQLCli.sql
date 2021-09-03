@@ -16,7 +16,7 @@ BEGIN
     new.ID = gen_id(GT_A_Inc_Cliente,1);
 END^
 SET TERM ; ^
-
+/*****************************************************************************************/
 CREATE TABLE Produto(
     Id INTEGER NOT NULL,
     Data DATE NOT NULL,
@@ -36,7 +36,7 @@ BEGIN
     new.ID = gen_id(GT_A_Inc_Produto,1);
 END^
 SET TERM ; ^
-
+/*****************************************************************************************/
 CREATE TABLE Venda(
     Id INTEGER NOT NULL,
     Cliente_Id INTEGER NOT NULL,
@@ -59,7 +59,7 @@ BEGIN
     new.ID = gen_id(GT_A_Inc_Venda,1);
 END^
 SET TERM ; ^
-
+/*****************************************************************************************/
 CREATE TABLE Credito(
     Id INTEGER NOT NULL,
     Cliente_Id INTEGER NOT NULL,
@@ -79,7 +79,7 @@ BEGIN
     new.ID = gen_id(GT_A_INC_Credito, 1);
 END^
 SET TERM ; ^
-
+/*****************************************************************************************/
 CREATE TABLE Retirada(
     Id INTEGER NOT NULL,
     Cliente_Id INTEGER NOT NULL,
@@ -104,8 +104,7 @@ BEGIN
     new.ID = gen_id(GT_A_Inc_Retirada,1);
 END^
 SET TERM ; ^
-
-
+/*****************************************************************************************/
 CREATE TABLE Debito(
     Id INTEGER NOT NULL,
     Cliente_Id INTEGER NOT NULL,
@@ -130,18 +129,9 @@ BEGIN
     new.ID = gen_id(GT_A_Inc_Debito,1);
 END^
 SET TERM ; ^
-
-
-
-
+/*****************************************************************************************/
 CREATE VIEW Saldo_Cliente(
-    CLIENTE_ID, 
-    Nome, 
-    PRODUTO_ID, 
-    Descricao, 
-    Saldo, 
-    Valor, 
-    Total
+    CLIENTE_ID, Nome, PRODUTO_ID, Descricao, Saldo, Valor, Total
 )
 AS 
 SELECT CLIENTE_ID, Nome, PRODUTO_ID, Descricao, SUM(Venda - Retirada) AS Saldo, Valor, (Valor * SUM(Venda - Retirada)) AS Total
@@ -161,7 +151,7 @@ FROM (
     GROUP BY R.CLIENTE_ID, C.Nome, R.PRODUTO_ID, P.Descricao, Venda, R.VALOR
 )
 GROUP BY CLIENTE_ID, Nome, PRODUTO_ID, Descricao, Valor;
-
+/*****************************************************************************************/
 CREATE VIEW Saldo_Credito_Debito
 (
 Cliente_Id, Nome, Credito, Debito, Saldo
@@ -183,7 +173,7 @@ INNER JOIN Cliente C ON CR.Cliente_Id = C.Id
 GROUP BY CR.Cliente_Id,C.Nome, G
 )
 GROUP BY Cliente_Id, Nome;
-
+/*****************************************************************************************/
 CREATE VIEW Extrato_Produto(
     Cliente_Id, Nome, Produto_Id, Descricao, Data, Retirada, Venda, Valor, Total, Info
 )
@@ -202,7 +192,7 @@ FROM RETIRADA R
 INNER JOIN Cliente C ON R.Cliente_Id = C.Id
 INNER JOIN Produto P ON R.Produto_Id = P.Id
 GROUP BY R.CLIENTE_ID, C.Nome, R.PRODUTO_ID, P.Descricao, R.Data, Venda, R.VALOR, Info;
-/*Extrato CD*/
+/*****************************************************************************************/
 CREATE VIEW Extrato_CD(
     Cliente_Id, Data, Nome, Produto_Id, Descricao, Credito, Debito, Saldo, Info
 )
@@ -223,11 +213,9 @@ UNION
     GROUP BY CR.Cliente_Id, CR.Data, C.Nome, P, D, G, Info)
     
 GROUP BY Cliente_Id, Data, Nome, Produto_Id, Descricao, Info;
-
+/*****************************************************************************************/
 GRANT ALL ON Extrato_CD TO rango;
 GRANT ALL ON Extrato_Produto TO rango;
-
-
 GRANT ALL ON Cliente TO rango;
 GRANT ALL ON Produto TO rango;
 GRANT ALL ON Retirada TO rango;

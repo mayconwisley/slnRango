@@ -39,6 +39,31 @@ namespace Controle.Relatorio
             }
         }
 
+        public DataTable SaldoAnteriorProduto(int idCliente, DateTime dataInicio, DateTime dataFim)
+        {
+
+            Crud crud = new Crud();
+            StringBuilder sql = new StringBuilder();
+            DataTable dataTable = new DataTable();
+            sql.Append("SELECT IIF((SUM(IIF(EP.Venda > 0, EP.Total, 0)) - SUM(IIF(EP.RETIRADA > 0, EP.Total, 0))) > 0, (SUM(IIF(EP.Venda > 0, EP.Total, 0)) - SUM(IIF(EP.RETIRADA > 0, EP.Total, 0))) , 0 ) AS SaldoAnterior  ");
+            sql.Append("FROM Extrato_Produto EP ");
+            sql.Append("WHERE EP.Cliente_Id = @Cliente_Id AND EP.Data NOT BETWEEN @DataInicio AND @DataFim AND EP.Data <= @DataFim ");
+
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParamentro("Cliente_Id", idCliente);
+                crud.AdicionarParamentro("DataInicio", dataInicio);
+                crud.AdicionarParamentro("DataFim", dataFim);
+                return dataTable = crud.Tabela(CommandType.Text, sql.ToString());
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
 
         public DataTable CreDeb(int idCliente, DateTime dataInicio, DateTime dataFim)
         {
@@ -74,10 +99,10 @@ namespace Controle.Relatorio
             Crud crud = new Crud();
             StringBuilder sql = new StringBuilder();
             DataTable dataTable = new DataTable();
-            sql.Append("SELECT SUM(ECD.Saldo) AS SaldoAnterior ");
+            sql.Append("SELECT IIF(SUM(ECD.Saldo) > 0, SUM(ECD.Saldo), 0 ) AS SaldoAnterior ");
             sql.Append("FROM Extrato_Cd ECD ");
             sql.Append("WHERE ECD.Cliente_Id = @Cliente_Id AND ECD.Data NOT BETWEEN @DataInicio AND @DataFim AND ECD.Data <= @DataFim ");
-           
+
             try
             {
                 crud.LimparParametros();

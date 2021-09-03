@@ -56,6 +56,48 @@ namespace Controle.Credito.Listar
             }
         }
 
+        public DataTable SaldoCreditoDebitoId(int idCliente)
+        {
+            Crud crud = new Crud();
+            StringBuilder sql = new StringBuilder();
+            DataTable dataTable = new DataTable();
+
+            sql.Append("SELECT SCD.CLIENTE_ID, SCD.NOME, SCD.CREDITO, SCD.DEBITO, SCD.SALDO ");
+            sql.Append("FROM Saldo_Credito_Debito SCD ");
+            sql.Append("WHERE SCD.Cliente_Id = @Cliente_Id");
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParamentro("Cliente_Id", idCliente);
+                dataTable = crud.Tabela(CommandType.Text, sql.ToString());
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public DataTable SaldoCreditoDebito()
+        {
+            Crud crud = new Crud();
+            StringBuilder sql = new StringBuilder();
+            DataTable dataTable = new DataTable();
+
+            sql.Append("SELECT SCD.CLIENTE_ID, SCD.NOME, SCD.CREDITO, SCD.DEBITO, SCD.SALDO ");
+            sql.Append("FROM Saldo_Credito_Debito SCD ");
+            sql.Append("ORDER BY SCD.Nome ASC");
+            try
+            {
+                crud.LimparParametros();
+                dataTable = crud.Tabela(CommandType.Text, sql.ToString());
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public decimal SaldoAtual(int idCliente)
         {
             Crud crud = new Crud();
