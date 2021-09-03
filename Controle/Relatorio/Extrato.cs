@@ -67,5 +67,30 @@ namespace Controle.Relatorio
                 throw new Exception(ex.Message);
             }
         }
+
+        public DataTable SaldoAnteriorCreDeb(int idCliente, DateTime dataInicio, DateTime dataFim)
+        {
+
+            Crud crud = new Crud();
+            StringBuilder sql = new StringBuilder();
+            DataTable dataTable = new DataTable();
+            sql.Append("SELECT SUM(ECD.Saldo) AS SaldoAnterior ");
+            sql.Append("FROM Extrato_Cd ECD ");
+            sql.Append("WHERE ECD.Cliente_Id = @Cliente_Id AND ECD.Data NOT BETWEEN @DataInicio AND @DataFim AND ECD.Data <= @DataFim ");
+           
+            try
+            {
+                crud.LimparParametros();
+                crud.AdicionarParamentro("Cliente_Id", idCliente);
+                crud.AdicionarParamentro("DataInicio", dataInicio);
+                crud.AdicionarParamentro("DataFim", dataFim);
+                return dataTable = crud.Tabela(CommandType.Text, sql.ToString());
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

@@ -46,21 +46,26 @@ namespace Rango
 
 
             DataTable dataTable = new DataTable();
+            DataTable dtSaldoAnteior = new DataTable();
 
             try
             {
                 if (rel == 1)
                 {
                     dataTable = extrato.Produto(idCliente, dataIncio, dataFim);
+                    
                     this.RpwRelatorio.LocalReport.DataSources.Clear();
                     this.RpwRelatorio.LocalReport.DataSources.Add(new ReportDataSource("ExtratoProdutoDataSet", dataTable));
+                    
                     this.RpwRelatorio.LocalReport.ReportPath = @"Relatorio\ExtratoProduto.rdlc";
                 }
                 else
                 {
                     dataTable = extrato.CreDeb(idCliente, dataIncio, dataFim);
+                    dtSaldoAnteior = extrato.SaldoAnteriorCreDeb(idCliente, dataIncio, dataFim);
                     this.RpwRelatorio.LocalReport.DataSources.Clear();
                     this.RpwRelatorio.LocalReport.DataSources.Add(new ReportDataSource("ExtratoCreDebDataSet", dataTable));
+                    this.RpwRelatorio.LocalReport.DataSources.Add(new ReportDataSource("ExtratoSaldoAnteriorCDDataSet", dtSaldoAnteior));
                     this.RpwRelatorio.LocalReport.ReportPath = @"Relatorio\ExtratoCreDeb.rdlc";
                 }
 

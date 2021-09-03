@@ -44,31 +44,27 @@ namespace Rango
                 debito.Quantidade = int.Parse(TxtQuantidade.Text.Trim());
                 debito.Valor = decimal.Parse(TxtValor.Text.Trim());
 
-
-                //Testar se o saldo é suficiente para comprar itens
-                //int qtd = int.Parse(TxtQuantidade.Text.Trim());
-                //decimal vlrUnitario = decimal.Parse(TxtValor.Text);
-                //decimal total = qtd * vlrUnitario;
-
                 switch (opc)
                 {
                     case 'G':
-                        //if (valorCredito <= total)
-                        //{
-                        //    MessageBox.Show($"Saldo insuficiente para o valor de {total.ToString("#,#00.00")}!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //    TxtQuantidade.Text = "0";
-                        //    return;
-                        //}
+
+                        if (debito.Quantidade <= 0)
+                        {
+                            MessageBox.Show($"Quantidade Inválida!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            TxtQuantidade.Text = "1";
+                            return;
+                        }
 
                         gravar.Cadastro(debito);
                         break;
                     case 'A':
-                        //if (valorCredito <= total)
-                        //{
-                        //    MessageBox.Show($"Saldo insuficiente para o valor de {total.ToString("#,#00.00")}", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //    TxtQuantidade.Text = "0";
-                        //    return;
-                        //}
+
+                        if (debito.Quantidade <= 0)
+                        {
+                            MessageBox.Show($"Quantidade Inválida!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            TxtQuantidade.Text = "1";
+                            return;
+                        }
 
                         alterar.Cadastro(debito);
                         break;
@@ -88,15 +84,13 @@ namespace Rango
                 BtnGravar.Enabled = true;
 
                 CbxCliente.Enabled = true;
-                TxtQuantidade.Text = "0";
+                TxtQuantidade.Text = "1";
                 MktData.Text = DateTime.Now.ToString("d");
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
         private void CbxProduto_SelectedIndexChanged(object sender, EventArgs e)
@@ -104,12 +98,10 @@ namespace Rango
             try
             {
                 Controle.Produto.Listar.Lista lista = new Controle.Produto.Listar.Lista();
-
                 idProduto = int.Parse(CbxProduto.SelectedValue.ToString());
                 valorProduto = lista.ValorProduto(idProduto);
                 TxtIdProduto.Text = idProduto.ToString();
                 TxtValor.Text = valorProduto.ToString("#,##0.00");
-
             }
             catch (Exception ex)
             {
@@ -169,7 +161,6 @@ namespace Rango
 
         private void TxtIdProduto_Leave(object sender, EventArgs e)
         {
-
             idProduto = int.Parse(TxtIdProduto.Text);
             CbxProduto.SelectedValue = idProduto;
             CbxProduto_SelectedIndexChanged(e, e);
@@ -187,7 +178,6 @@ namespace Rango
         {
             if (e.KeyCode == Keys.Enter)
             {
-
                 CbxProduto.Text = "";
                 TxtIdProduto.Text = "";
                 idCliente = int.Parse(TxtIdCliente.Text.Trim());
@@ -223,7 +213,7 @@ namespace Rango
         {
             if (TxtQuantidade.Text == "0")
             {
-                TxtQuantidade.Text = "";
+                TxtQuantidade.Text = "1";
             }
         }
 
@@ -240,7 +230,6 @@ namespace Rango
         private void FrmCadDebito_Load(object sender, EventArgs e)
         {
             ListarCliente();
-
             Listar($"%{TxtPesquisa.Text.Trim()}%");
             MktData.Text = DateTime.Now.ToString("d");
         }
@@ -249,25 +238,19 @@ namespace Rango
         {
             Lista lista = new Lista();
             DgvLista.DataSource = lista.Geral(pesquisa);
-
         }
-
 
         private void ListarCliente()
         {
             Controle.Cliente.Listar.Lista lista = new Controle.Cliente.Listar.Lista();
-
             CbxCliente.DataSource = lista.IdNome();
         }
 
         private void ValidarSaldo(int idCliente)
         {
             Controle.Credito.Listar.Lista lista = new Controle.Credito.Listar.Lista();
-
             valorCredito = lista.SaldoAtual(idCliente);
             LblSaldo.Text = $"Saldo Atual: {valorCredito.ToString("#,##0.00")}";
-
-
         }
 
         private void ListarProduto(int idCliente)
@@ -282,7 +265,5 @@ namespace Rango
                 MessageBox.Show(ex.Message);
             }
         }
-
-
     }
 }

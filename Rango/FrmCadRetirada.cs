@@ -128,11 +128,12 @@ namespace Rango
         {
             try
             {
-
+                Controle.Produto.Listar.Lista lista = new Controle.Produto.Listar.Lista();
                 idProduto = int.Parse(CbxProduto.SelectedValue.ToString());
 
                 TxtIdProduto.Text = idProduto.ToString();
 
+                valorProduto = lista.ValorProduto(idProduto);
                 TxtValor.Text = valorProduto.ToString("#,##0.00");
 
                 ValidarSaldo(idCliente, idProduto);

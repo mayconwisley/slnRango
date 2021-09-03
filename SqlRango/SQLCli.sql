@@ -202,7 +202,7 @@ FROM RETIRADA R
 INNER JOIN Cliente C ON R.Cliente_Id = C.Id
 INNER JOIN Produto P ON R.Produto_Id = P.Id
 GROUP BY R.CLIENTE_ID, C.Nome, R.PRODUTO_ID, P.Descricao, R.Data, Venda, R.VALOR, Info;
-
+/*Extrato CD*/
 CREATE VIEW Extrato_CD(
     Cliente_Id, Data, Nome, Produto_Id, Descricao, Credito, Debito, Saldo, Info
 )
@@ -210,13 +210,13 @@ AS
 SELECT Cliente_Id, Data, Nome, Produto_Id, Descricao, SUM(Credito) AS Credito, SUM(Debito) AS Debito, (SUM(Credito) - SUM(Debito)) AS Saldo, Info
 FROM
   (
-    SELECT D.Cliente_Id, D.Data, C.Nome, D.Produto_Id, P.Descricao, SUM(D.Quantidade * D.Valor) AS Debito, 0 AS Credito, 'Debito' AS Info
+    SELECT D.Cliente_Id, D.Data, C.Nome, D.Produto_Id, P.Descricao, SUM(D.Quantidade * D.Valor) AS Debito, 0 AS Credito, 'Débito' AS Info
     FROM Debito D
     INNER JOIN Cliente C ON D.Cliente_Id = C.Id
     INNER JOIN Produto P ON D.Produto_Id = P.Id
     GROUP BY D.Cliente_Id, D.Data, C.Nome, D.Produto_Id, P.Descricao, D.Valor, Credito, Info
 UNION 
-    SELECT CR.Cliente_Id, CR.Data, C.Nome, 0 AS P, 'Entrada de Crédito' AS D, 0 AS G, SUM(CR.Valor) AS Credito, 'Credito' AS Info
+    SELECT CR.Cliente_Id, CR.Data, C.Nome, 0 AS P, 'Entrada de Crédito' AS D, 0 AS G, SUM(CR.Valor) AS Credito, 'Crédito' AS Info
                 
     FROM Credito CR
     INNER JOIN Cliente C ON CR.Cliente_Id = C.Id
