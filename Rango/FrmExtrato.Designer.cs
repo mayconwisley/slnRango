@@ -69,7 +69,7 @@ namespace Rango
             this.groupBox5.Location = new System.Drawing.Point(8, 86);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(311, 38);
-            this.groupBox5.TabIndex = 4;
+            this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Opção";
             // 
@@ -84,7 +84,7 @@ namespace Rango
             this.RbCD.Location = new System.Drawing.Point(175, 11);
             this.RbCD.Name = "RbCD";
             this.RbCD.Size = new System.Drawing.Size(93, 17);
-            this.RbCD.TabIndex = 0;
+            this.RbCD.TabIndex = 1;
             this.RbCD.Text = "Crédito/Débito";
             this.RbCD.UseVisualStyleBackColor = true;
             // 
@@ -155,7 +155,7 @@ namespace Rango
             this.MktDataFim.Mask = "00/00/0000";
             this.MktDataFim.Name = "MktDataFim";
             this.MktDataFim.Size = new System.Drawing.Size(74, 20);
-            this.MktDataFim.TabIndex = 0;
+            this.MktDataFim.TabIndex = 1;
             this.MktDataFim.ValidatingType = typeof(System.DateTime);
             // 
             // MktDataInicio
@@ -173,7 +173,7 @@ namespace Rango
             this.groupBox1.Location = new System.Drawing.Point(8, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(311, 74);
-            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cliente";
             // 
