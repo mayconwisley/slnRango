@@ -10,8 +10,8 @@ namespace Controle.Cliente
     {
         public bool Cadastro(ClienteObjeto cliente)
         {
-         Crud   crud = new Crud();
-          StringBuilder  sql = new StringBuilder();
+            Crud crud = new Crud();
+            StringBuilder sql = new StringBuilder();
 
             sql.Append("DELETE FROM Cliente ");
             sql.Append("WHERE Id = @Id");

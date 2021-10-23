@@ -49,6 +49,7 @@ namespace Rango
             this.SubMenuRetConsultaDebito = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuSaldo = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuSaldoConsulta = new System.Windows.Forms.ToolStripMenuItem();
+            this.SubMenuSaldoCD = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuExtrato = new System.Windows.Forms.ToolStripMenuItem();
             this.SubMenuExtratoListar = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,14 +57,13 @@ namespace Rango
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblDataHoraAtual = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.SubMenuSaldoCD = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuPrincipal.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuPrincipal
             // 
-            this.MenuPrincipal.BackColor = System.Drawing.Color.Gainsboro;
+            this.MenuPrincipal.BackColor = System.Drawing.Color.Transparent;
             this.MenuPrincipal.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.MenuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuCadastro,
@@ -224,9 +224,16 @@ namespace Rango
             // 
             this.SubMenuSaldoConsulta.Image = global::Rango.Properties.Resources.Consulta32;
             this.SubMenuSaldoConsulta.Name = "SubMenuSaldoConsulta";
-            this.SubMenuSaldoConsulta.Size = new System.Drawing.Size(196, 38);
+            this.SubMenuSaldoConsulta.Size = new System.Drawing.Size(153, 22);
             this.SubMenuSaldoConsulta.Text = "&Consulta";
             this.SubMenuSaldoConsulta.Click += new System.EventHandler(this.SubMenuSaldoConsulta_Click);
+            // 
+            // SubMenuSaldoCD
+            // 
+            this.SubMenuSaldoCD.Name = "SubMenuSaldoCD";
+            this.SubMenuSaldoCD.Size = new System.Drawing.Size(153, 22);
+            this.SubMenuSaldoCD.Text = "Crédito/Débito";
+            this.SubMenuSaldoCD.Click += new System.EventHandler(this.SubMenuSaldoCD_Click);
             // 
             // MenuExtrato
             // 
@@ -281,13 +288,6 @@ namespace Rango
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // SubMenuSaldoCD
-            // 
-            this.SubMenuSaldoCD.Name = "SubMenuSaldoCD";
-            this.SubMenuSaldoCD.Size = new System.Drawing.Size(196, 38);
-            this.SubMenuSaldoCD.Text = "Crédito/Débito";
-            this.SubMenuSaldoCD.Click += new System.EventHandler(this.SubMenuSaldoCD_Click);
             // 
             // FrmPrincipal
             // 

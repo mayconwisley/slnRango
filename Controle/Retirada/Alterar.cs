@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Controle.Retirada
 {
-    public  class Alterar
+    public class Alterar
     {
         public bool Cadastro(RetiradaObjeto retirada)
         {

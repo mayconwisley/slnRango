@@ -86,9 +86,9 @@ namespace Controle.Retirada.Listar
                 {
                     return 0;
                 }
-                
-                
-                
+
+
+
 
             }
             catch (Exception ex)

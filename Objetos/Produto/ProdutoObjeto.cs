@@ -2,7 +2,7 @@
 
 namespace Objetos.Produto
 {
-    public  class ProdutoObjeto
+    public class ProdutoObjeto
     {
         public int Id { get; set; }
         public DateTime Data { get; set; }

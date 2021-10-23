@@ -3,13 +3,6 @@ using Controle.Credito.Listar;
 using Controle.Validar;
 using Objetos.Credito;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Rango
@@ -123,6 +116,7 @@ namespace Rango
         {
             FormatarValor formatarValor = new FormatarValor();
             TxtValor.Text = formatarValor.Zero(TxtValor.Text.Trim());
+            TxtValor.Text = formatarValor.ParaValor(TxtValor.Text.Trim());
         }
 
         private void TxtValor_Enter(object sender, EventArgs e)
