@@ -35,7 +35,6 @@ namespace Controle.Relatorio
                 throw new Exception(ex.Message);
             }
         }
-
         public DataTable SaldoAnteriorProduto(int idCliente, DateTime dataInicio, DateTime dataFim)
         {
 
@@ -60,8 +59,6 @@ namespace Controle.Relatorio
                 throw new Exception(ex.Message);
             }
         }
-
-
         public DataTable CreDeb(int idCliente, DateTime dataInicio, DateTime dataFim)
         {
 
@@ -89,7 +86,6 @@ namespace Controle.Relatorio
                 throw new Exception(ex.Message);
             }
         }
-
         public DataTable SaldoAnteriorCreDeb(int idCliente, DateTime dataInicio, DateTime dataFim)
         {
 

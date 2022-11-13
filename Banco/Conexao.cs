@@ -7,12 +7,13 @@ namespace Banco
     public class Conexao
     {
         protected FbConnection fbConnection;
-        static string strDiretorioBase = AppDomain.CurrentDomain.BaseDirectory.ToString();
 
-        private string strConexao = $@"User = rango; Password = rango159; ServerType = 1; DataBase = {strDiretorioBase}Banco\Rango.fdb";
 
         protected bool Conectar()
         {
+            string strDiretorioBase = AppDomain.CurrentDomain.BaseDirectory.ToString();
+            string strConexao = $@"User = rango; Password = rango159; ServerType = 1; DataBase = {strDiretorioBase}Banco\Rango.fdb";
+
             fbConnection = new FbConnection(strConexao);
             try
             {
