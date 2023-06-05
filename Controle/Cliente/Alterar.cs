@@ -29,7 +29,6 @@ namespace Controle.Cliente
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
 
