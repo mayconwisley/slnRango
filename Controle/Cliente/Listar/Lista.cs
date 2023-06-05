@@ -45,6 +45,8 @@ namespace Controle.Cliente.Listar
             try
             {
                 crud.LimparParametros();
+                
+
                 dataTable = crud.Tabela(CommandType.Text, sql.ToString());
                 return dataTable;
             }

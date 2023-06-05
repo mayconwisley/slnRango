@@ -16,6 +16,11 @@ namespace Rango
             Controle.Cliente.Listar.Lista lista = new Controle.Cliente.Listar.Lista();
             try
             {
+                if (lista.IdNome().Rows.Count <= 0)
+                {
+                    MessageBox.Show("Nenhum cliente cadastrado!!!", "Aviso", MessageBoxButtons.OK);
+                    return;
+                }
                 CbxCliente.DataSource = lista.IdNome();
                 TxtIdCliente.Text = CbxCliente.SelectedValue.ToString();
             }
@@ -30,7 +35,6 @@ namespace Rango
             DateTime dateInicio;
             dateInicio = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
 
-
             MktDataInicio.Text = dateInicio.ToString("d");
             MktDataFim.Text = DateTime.Now.Date.ToString("d");
         }
@@ -40,11 +44,8 @@ namespace Rango
             ListarCliente();
             ListarPeriodo();
         }
-
-
         private void ListarRelatorio()
         {
-
             try
             {
                 dataInicio = DateTime.Parse(MktDataInicio.Text);
@@ -55,7 +56,6 @@ namespace Rango
                 {
                     frmVisualizar = new FrmVisualizar(1, idCliente, dataInicio, dateFim);
                 }
-
                 else
                 {
                     frmVisualizar = new FrmVisualizar(2, idCliente, dataInicio, dateFim);
@@ -67,7 +67,6 @@ namespace Rango
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
         private void TxtIdCliente_Leave(object sender, EventArgs e)
